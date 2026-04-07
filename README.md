@@ -2002,3 +2002,75 @@ You can turn these into resume bullets like:
 ---
 
 If you want, I can turn this into a **copy-paste-ready repo skeleton** next, with each file shown in full directory order so you can build it exactly as-is.
+
+---
+
+# Project Interaction Diagrams
+
+## 1) AI Incident Triage & Release Notes API
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Stakeholder as Stakeholder
+    participant PM as Planning
+    participant Arch as Architecture
+    participant Dev as Implementation
+    participant QA as Testing
+    participant Review as Code Review
+    participant CI as CI/CD
+    participant Deploy as Deployment
+    participant Mon as Monitoring
+    participant Eval as Evaluation
+
+    Stakeholder->>PM: Share incident workflow needs
+    PM->>PM: Draft PRD and acceptance criteria
+    PM->>Arch: Hand off requirements
+    Arch->>Arch: Define API contract and prompt design
+    Arch->>Dev: Approve solution shape
+    Dev->>Dev: Build FastAPI, schema validation, OpenAI provider
+    Dev->>QA: Send testable build
+    QA->>QA: Run unit tests, curl tests, eval cases
+    QA->>Review: Submit diff for review
+    Review->>Review: Check correctness, tests, rollback risk
+    Review->>CI: Merge approved changes
+    CI->>CI: Lint, test, build Docker image
+    CI->>Deploy: Trigger Render deployment
+    Deploy->>Mon: Expose /health and logs
+    Mon->>Eval: Collect latency and failure metrics
+    Eval->>Stakeholder: Compare output quality and business fit
+```
+
+## 2) AI Feedback Ops Hub
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Ops as Operations Lead
+    participant PM as Planning
+    participant Arch as Design
+    participant Impl as Implementation
+    participant QA as Testing
+    participant Review as Review
+    participant CD as Deployment
+    participant Run as Runtime
+    participant Monitor as Monitoring
+    participant Eval as Evaluation
+
+    Ops->>PM: Define workflow charter and KPIs
+    PM->>PM: Decide input/output fields and approval steps
+    PM->>Arch: Hand off process design
+    Arch->>Arch: Map form, sheet, alerts, and digest flow
+    Arch->>Impl: Approve implementation plan
+    Impl->>Impl: Build Apps Script, OpenAI calls, sheet updates
+    Impl->>QA: Submit sample rows
+    QA->>QA: Verify classification, alerts, and digest logic
+    QA->>Review: Share script and prompt for review
+    Review->>Review: Check mappings, safety, and failure handling
+    Review->>CD: Approve trigger setup
+    CD->>CD: Enable form trigger, weekly digest, clasp deploy
+    CD->>Run: Process live submissions
+    Run->>Monitor: Write status, send Slack alerts, log executions
+    Monitor->>Eval: Measure match rate and minutes saved
+    Eval->>Ops: Report workflow value and refinement needs
+```
