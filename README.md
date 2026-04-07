@@ -2005,11 +2005,24 @@ If you want, I can turn this into a **copy-paste-ready repo skeleton** next, wit
 
 ---
 
-# Project Interaction Diagrams
+# Project Diagrams
 
-Paste each block into Mermaid. They are laid out chronologically from top to bottom and use separate vertical lifelines for the main actors.
+## Technical
 
-## 1) `ai-incident-triage-openai`
+### Automation / Manual Guide
+
+| Step                    | Save manually? |
+| ----------------------- | -------------- |
+| Writing notes           | Yes            |
+| Generating requirements | Yes            |
+| Generating architecture | Yes            |
+| Editing code            | Yes            |
+| Running API             | No             |
+| Running tests           | No             |
+| Running evaluation      | Optional       |
+| CI/CD pipelines         | No             |
+
+### OpenAI Interaction Diagram
 
 ```mermaid
 sequenceDiagram
@@ -2080,7 +2093,7 @@ rect rgb(245,245,245)
 end
 ```
 
-## 2) `ai-incident-triage-claude`
+### Claude Interaction Diagram
 
 ```mermaid
 sequenceDiagram
@@ -2151,7 +2164,9 @@ rect rgb(245,245,245)
 end
 ```
 
-## 3) `ai-feedback-hub-openai`
+## Non-technical 
+
+### OpenAI Interaction Diagram
 
 ```mermaid
 sequenceDiagram
@@ -2224,7 +2239,7 @@ rect rgb(245,245,245)
 end
 ```
 
-## 4) `ai-feedback-hub-claude`
+### Claude Interaction Diagram
 
 ```mermaid
 sequenceDiagram
@@ -2296,5 +2311,3 @@ rect rgb(245,245,245)
   AI-->>Manager: Weekly digest quality and accuracy analysis
 end
 ```
-
-If you want, I can turn these into a single polished `README.md` section with short captions under each diagram.
