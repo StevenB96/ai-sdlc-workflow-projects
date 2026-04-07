@@ -2007,70 +2007,294 @@ If you want, I can turn this into a **copy-paste-ready repo skeleton** next, wit
 
 # Project Interaction Diagrams
 
-## 1) AI Incident Triage & Release Notes API
+Paste each block into Mermaid. They are laid out chronologically from top to bottom and use separate vertical lifelines for the main actors.
+
+## 1) `ai-incident-triage-openai`
 
 ```mermaid
 sequenceDiagram
-    autonumber
-    participant Stakeholder as Stakeholder
-    participant PM as Planning
-    participant Arch as Architecture
-    participant Dev as Implementation
-    participant QA as Testing
-    participant Review as Code Review
-    participant CI as CI/CD
-    participant Deploy as Deployment
-    participant Mon as Monitoring
-    participant Eval as Evaluation
+autonumber
+actor Support as Support / QA
+actor Engineer as Engineer
+participant Repo as GitHub Repo
+participant AI as OpenAI API
+participant CI as GitHub Actions
+participant Deploy as Render
+participant Mon as UptimeRobot
 
-    Stakeholder->>PM: Share incident workflow needs
-    PM->>PM: Draft PRD and acceptance criteria
-    PM->>Arch: Hand off requirements
-    Arch->>Arch: Define API contract and prompt design
-    Arch->>Dev: Approve solution shape
-    Dev->>Dev: Build FastAPI, schema validation, OpenAI provider
-    Dev->>QA: Send testable build
-    QA->>QA: Run unit tests, curl tests, eval cases
-    QA->>Review: Submit diff for review
-    Review->>Review: Check correctness, tests, rollback risk
-    Review->>CI: Merge approved changes
-    CI->>CI: Lint, test, build Docker image
-    CI->>Deploy: Trigger Render deployment
-    Deploy->>Mon: Expose /health and logs
-    Mon->>Eval: Collect latency and failure metrics
-    Eval->>Stakeholder: Compare output quality and business fit
+rect rgb(245,245,245)
+  Note over Support,Engineer: Requirements & Planning
+  Support->>Engineer: Share bug examples, logs, and business impact
+  Engineer->>Repo: Create stakeholder notes and backlog items
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,Repo: Design & Architecture
+  Engineer->>AI: Generate PRD and architecture doc prompts
+  AI-->>Engineer: PRD + architecture draft
+  Engineer->>Repo: Commit docs and acceptance criteria
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,Repo: Implementation
+  Engineer->>Repo: Build FastAPI /triage and /health
+  Engineer->>Repo: Add schemas, prompts, provider wrapper, and scripts
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,CI: Testing & QA
+  Engineer->>CI: Run pytest, lint, and evaluation dataset checks
+  CI-->>Engineer: Pass/fail results and test artifacts
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,CI: Code Review
+  CI->>AI: Send git diff for AI-assisted review
+  AI-->>CI: Blocking issues, suggestions, missing tests
+  CI-->>Engineer: Post review comment on PR
+end
+
+rect rgb(245,245,245)
+  Note over CI,Deploy: CI/CD Pipeline
+  CI->>CI: Build Docker image and run checks
+  CI->>Deploy: Trigger Render deploy on merge to main
+end
+
+rect rgb(245,245,245)
+  Note over Mon,Deploy: Deployment & Monitoring
+  Mon->>Deploy: Ping /health
+  Deploy-->>Mon: 200 OK or failure
+  Deploy-->>Engineer: Logs, alerts, and runtime errors
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,Repo: Documentation & Runbook
+  Engineer->>Repo: Update README, runbook, and release notes
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,AI: Evaluation
+  Engineer->>AI: Run evaluation cases and compare outputs
+  AI-->>Engineer: Severity, component, latency, and confidence results
+  Engineer->>Repo: Record findings and tuning decisions
+end
 ```
 
-## 2) AI Feedback Ops Hub
+## 2) `ai-incident-triage-claude`
 
 ```mermaid
 sequenceDiagram
-    autonumber
-    participant Ops as Operations Lead
-    participant PM as Planning
-    participant Arch as Design
-    participant Impl as Implementation
-    participant QA as Testing
-    participant Review as Review
-    participant CD as Deployment
-    participant Run as Runtime
-    participant Monitor as Monitoring
-    participant Eval as Evaluation
+autonumber
+actor Support as Support / QA
+actor Engineer as Engineer
+participant Repo as GitHub Repo
+participant AI as Anthropic API
+participant CI as GitHub Actions
+participant Deploy as Render
+participant Mon as UptimeRobot
 
-    Ops->>PM: Define workflow charter and KPIs
-    PM->>PM: Decide input/output fields and approval steps
-    PM->>Arch: Hand off process design
-    Arch->>Arch: Map form, sheet, alerts, and digest flow
-    Arch->>Impl: Approve implementation plan
-    Impl->>Impl: Build Apps Script, OpenAI calls, sheet updates
-    Impl->>QA: Submit sample rows
-    QA->>QA: Verify classification, alerts, and digest logic
-    QA->>Review: Share script and prompt for review
-    Review->>Review: Check mappings, safety, and failure handling
-    Review->>CD: Approve trigger setup
-    CD->>CD: Enable form trigger, weekly digest, clasp deploy
-    CD->>Run: Process live submissions
-    Run->>Monitor: Write status, send Slack alerts, log executions
-    Monitor->>Eval: Measure match rate and minutes saved
-    Eval->>Ops: Report workflow value and refinement needs
+rect rgb(245,245,245)
+  Note over Support,Engineer: Requirements & Planning
+  Support->>Engineer: Share bug examples, logs, and business impact
+  Engineer->>Repo: Create stakeholder notes and backlog items
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,Repo: Design & Architecture
+  Engineer->>AI: Generate PRD and architecture doc prompts
+  AI-->>Engineer: PRD + architecture draft
+  Engineer->>Repo: Commit docs and acceptance criteria
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,Repo: Implementation
+  Engineer->>Repo: Build FastAPI /triage and /health
+  Engineer->>Repo: Add schemas, prompts, provider wrapper, and scripts
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,CI: Testing & QA
+  Engineer->>CI: Run pytest, lint, and evaluation dataset checks
+  CI-->>Engineer: Pass/fail results and test artifacts
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,CI: Code Review
+  CI->>AI: Send git diff for AI-assisted review
+  AI-->>CI: Blocking issues, suggestions, missing tests
+  CI-->>Engineer: Post review comment on PR
+end
+
+rect rgb(245,245,245)
+  Note over CI,Deploy: CI/CD Pipeline
+  CI->>CI: Build Docker image and run checks
+  CI->>Deploy: Trigger Render deploy on merge to main
+end
+
+rect rgb(245,245,245)
+  Note over Mon,Deploy: Deployment & Monitoring
+  Mon->>Deploy: Ping /health
+  Deploy-->>Mon: 200 OK or failure
+  Deploy-->>Engineer: Logs, alerts, and runtime errors
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,Repo: Documentation & Runbook
+  Engineer->>Repo: Update README, runbook, and release notes
+end
+
+rect rgb(245,245,245)
+  Note over Engineer,AI: Evaluation
+  Engineer->>AI: Run evaluation cases and compare outputs
+  AI-->>Engineer: Severity, component, latency, and confidence results
+  Engineer->>Repo: Record findings and tuning decisions
+end
 ```
+
+## 3) `ai-feedback-hub-openai`
+
+```mermaid
+sequenceDiagram
+autonumber
+actor User as Customer / Employee
+participant Form as Google Form
+participant Sheet as Google Sheet
+participant Auto as Apps Script / Zapier
+participant AI as OpenAI API
+participant Slack as Slack
+participant Gmail as Gmail
+participant Manager as Manager
+
+rect rgb(245,245,245)
+  Note over User,Manager: Requirements & Planning
+  User->>Manager: Submit feedback, survey response, or request
+  Manager->>Auto: Define workflow charter and approval rules
+  Manager->>Sheet: Confirm input fields and output columns
+end
+
+rect rgb(245,245,245)
+  Note over User,Sheet: Design & Architecture
+  User->>Form: Fill out Google Form
+  Form->>Sheet: Append new row
+  Manager->>Sheet: Review sheet schema and status flow
+end
+
+rect rgb(245,245,245)
+  Note over Sheet,Auto: Implementation
+  Auto->>Sheet: Read new row
+  Auto->>AI: Send feedback for classification and drafting
+  AI-->>Auto: Theme, sentiment, urgency, next action, owner, draft
+  Auto->>Sheet: Write analysis columns and status
+end
+
+rect rgb(245,245,245)
+  Note over Auto,Slack: Testing & QA
+  Manager->>Auto: Run sample submissions and verify outputs
+  Auto-->>Manager: Updated rows and test results
+  Auto->>Slack: Send urgent alert for high / critical items
+end
+
+rect rgb(245,245,245)
+  Note over Manager,Auto: Code Review
+  Manager->>Auto: Review prompt, filters, and routing logic
+  Auto-->>Manager: Approved or revised workflow
+end
+
+rect rgb(245,245,245)
+  Note over Auto,Gmail: CI/CD Pipeline
+  Manager->>Auto: Promote staging workflow to production
+  Auto->>Gmail: Create draft or send weekly digest
+end
+
+rect rgb(245,245,245)
+  Note over Slack,Manager: Deployment & Monitoring
+  Slack-->>Manager: Execution failures or urgent item alerts
+  Auto-->>Manager: Task history and row status updates
+end
+
+rect rgb(245,245,245)
+  Note over Manager,Auto: Documentation & Runbook
+  Manager->>Auto: Update SOP, escalation steps, and approval paths
+end
+
+rect rgb(245,245,245)
+  Note over Manager,AI: Evaluation
+  Manager->>AI: Compare AI tags to human labels and measure time saved
+  AI-->>Manager: Weekly digest quality and accuracy analysis
+end
+```
+
+## 4) `ai-feedback-hub-claude`
+
+```mermaid
+sequenceDiagram
+autonumber
+actor User as Customer / Employee
+participant Form as Google Form
+participant Sheet as Google Sheet
+participant Auto as Apps Script / Make
+participant AI as Anthropic API
+participant Slack as Slack
+participant Gmail as Gmail
+participant Manager as Manager
+
+rect rgb(245,245,245)
+  Note over User,Manager: Requirements & Planning
+  User->>Manager: Submit feedback, survey response, or request
+  Manager->>Auto: Define workflow charter and approval rules
+  Manager->>Sheet: Confirm input fields and output columns
+end
+
+rect rgb(245,245,245)
+  Note over User,Sheet: Design & Architecture
+  User->>Form: Fill out Google Form
+  Form->>Sheet: Append new row
+  Manager->>Sheet: Review sheet schema and status flow
+end
+
+rect rgb(245,245,245)
+  Note over Sheet,Auto: Implementation
+  Auto->>Sheet: Read new row
+  Auto->>AI: Send feedback for classification and drafting
+  AI-->>Auto: Theme, sentiment, urgency, next action, owner, draft
+  Auto->>Sheet: Write analysis columns and status
+end
+
+rect rgb(245,245,245)
+  Note over Auto,Slack: Testing & QA
+  Manager->>Auto: Run sample submissions and verify outputs
+  Auto-->>Manager: Updated rows and test results
+  Auto->>Slack: Send urgent alert for high / critical items
+end
+
+rect rgb(245,245,245)
+  Note over Manager,Auto: Code Review
+  Manager->>Auto: Review prompt, filters, and routing logic
+  Auto-->>Manager: Approved or revised workflow
+end
+
+rect rgb(245,245,245)
+  Note over Auto,Gmail: CI/CD Pipeline
+  Manager->>Auto: Promote staging workflow to production
+  Auto->>Gmail: Create draft or send weekly digest
+end
+
+rect rgb(245,245,245)
+  Note over Slack,Manager: Deployment & Monitoring
+  Slack-->>Manager: Execution failures or urgent item alerts
+  Auto-->>Manager: Task history and row status updates
+end
+
+rect rgb(245,245,245)
+  Note over Manager,Auto: Documentation & Runbook
+  Manager->>Auto: Update SOP, escalation steps, and approval paths
+end
+
+rect rgb(245,245,245)
+  Note over Manager,AI: Evaluation
+  Manager->>AI: Compare AI tags to human labels and measure time saved
+  AI-->>Manager: Weekly digest quality and accuracy analysis
+end
+```
+
+If you want, I can turn these into a single polished `README.md` section with short captions under each diagram.
