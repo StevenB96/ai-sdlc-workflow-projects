@@ -121,7 +121,7 @@ Each feedback entry is automatically analyzed and classified by the AI system, w
 * drafted follow-up email response
 * weekly summary reports
 
-This workflow is designed for users who may not be engineers and therefore emphasizes automation and accessibility.
+This workflow is designed for users who may not be engineers and therefore emphasises automation and accessibility.
 
 Two workflow approaches are included:
 
@@ -195,14 +195,14 @@ Additional tools used for planning and documentation include:
 
 This project intentionally does not depend on enterprise incident management platforms. The goal is to **demonstrate the underlying workflow and engineering concepts** rather than integrate a full commercial operations stack.
 
-Many organizations manage processes such as:
+Many organisations manage processes such as:
 
 * incident management
 * bug triage
 * support ticket classification
 * release coordination
 
-using specialized platforms like:
+using specialised platforms like:
 
 * PagerDuty
 * Sentry
@@ -238,7 +238,7 @@ while still reflecting the real operational problems that enterprise platforms h
 Use these on both projects:
 
 - **Do not send secrets, customer PII, or production credentials** to any model.
-- Use **sample or sanitized data** while learning.
+- Use **sample or sanitised data** while learning.
 - Add **human approval** before anything customer-facing gets sent.
 - Keep **OpenAI and Claude versions in separate repos or folders** so you can compare them independently.
 - Put keys in:
@@ -1434,7 +1434,7 @@ function getProp_(name) {
   return value;
 }
 
-function normalizeKey_(text) {
+function normaliseKey_(text) {
   return String(text).trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
 }
 
@@ -1463,7 +1463,7 @@ function prepareOutputColumns_() {
 function rowToObject_(headers, values) {
   const obj = {};
   headers.forEach((h, i) => {
-    obj[normalizeKey_(h)] = values[i];
+    obj[normaliseKey_(h)] = values[i];
   });
   return obj;
 }
@@ -1620,7 +1620,7 @@ function analyzeWithOpenAI(record) {
   return JSON.parse(data.choices[0].message.content);
 }
 
-function summarizeWithOpenAI(records) {
+function summariseWithOpenAI(records) {
   const apiKey = getProp_('OPENAI_API_KEY');
   const model = PropertiesService.getScriptProperties().getProperty('OPENAI_MODEL') || 'gpt-4o-mini';
 
@@ -1656,7 +1656,7 @@ function summarizeWithOpenAI(records) {
 
 function weeklyDigestOpenAI() {
   const records = buildWeeklyRecords_();
-  const summary = summarizeWithOpenAI(records);
+  const summary = summariseWithOpenAI(records);
   const title = 'Weekly Feedback Digest - ' +
     Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd');
   const docUrl = writeWeeklyDoc_(title, summary);
@@ -1686,7 +1686,7 @@ In Apps Script:
    - the OpenAI block
 5. In **Project Settings**, add Script Properties
 6. Run `setupTriggersOpenAI()` once
-7. Authorize the script
+7. Authorise the script
 8. Submit a test form entry
 9. Check that columns E–K fill automatically
 
@@ -1779,7 +1779,7 @@ function analyzeWithClaude(record) {
   return extractJson_(text);
 }
 
-function summarizeWithClaude(records) {
+function summariseWithClaude(records) {
   const apiKey = getProp_('ANTHROPIC_API_KEY');
   const model = PropertiesService.getScriptProperties().getProperty('ANTHROPIC_MODEL') || 'claude-3-5-sonnet-20240620';
 
@@ -1814,7 +1814,7 @@ function summarizeWithClaude(records) {
 
 function weeklyDigestClaude() {
   const records = buildWeeklyRecords_();
-  const summary = summarizeWithClaude(records);
+  const summary = summariseWithClaude(records);
   const title = 'Weekly Feedback Digest - ' +
     Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd');
   const docUrl = writeWeeklyDoc_(title, summary);
@@ -1918,7 +1918,7 @@ This version is for learning modern no-code business automation.
 4. **Action**: Update row with theme/sentiment/urgency
 5. **Action**: If urgency is high/critical, send Slack alert
 6. **Action**: Create Gmail draft
-7. **Scheduled weekly Zap**: summarize last week into email/doc
+7. **Scheduled weekly Zap**: summarise last week into email/doc
 
 ## Zapier HTTP request to OpenAI
 
@@ -1980,7 +1980,7 @@ This gives you a second independent automation stack.
 4. **Action**: Update row with theme/sentiment/urgency
 5. **Router**: urgent items to Slack
 6. **Action**: create Gmail draft
-7. **Scheduled scenario**: aggregate weekly rows and summarize via Claude
+7. **Scheduled scenario**: aggregate weekly rows and summarise via Claude
 
 ## Make HTTP request to Claude
 
