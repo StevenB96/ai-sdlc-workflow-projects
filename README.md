@@ -1,32 +1,233 @@
-Below are two portfolio-ready personal projects that mirror real business workflows.
+# AI Workflow Portfolio Projects
 
-I designed them so you can build:
+Below are two portfolio-ready personal projects designed to mirror real business workflows.
 
-1. **One technical-user project**  
+The projects are structured to demonstrate both **technical engineering work** and **AI-enabled business process automation**.
+
+I designed them so that the portfolio contains:
+
+1. **One technical-user project**
 2. **One non-technical-user project**
 
-And for **each** project, you will have **two separate implementations**:
+For **each project**, there are two independent implementations:
 
-- an **OpenAI / ChatGPT-only** version
-- an **Anthropic / Claude-only** version
+* an **OpenAI / ChatGPT-only version**
+* an **Anthropic / Claude-only version**
 
-I also split each project into:
+Each implementation also includes two development approaches:
 
-- **scripted/manual** methods: code/scripts you run directly
-- **tooling-based** methods: GitHub Actions, Zapier, Make, Render, Apps Script triggers, etc.
+* **scripted/manual methods** — code and scripts run directly
+* **tooling-based methods** — workflow automation using platforms such as GitHub Actions, Zapier, Make, Render, or Apps Script triggers
 
-That gives you realistic practice across the full SDLC:
+This structure provides realistic practice across the full software delivery lifecycle.
 
-- Requirements & Planning  
-- Design & Architecture  
-- Implementation  
-- Testing & QA  
-- Code Review  
-- CI/CD Pipeline  
-- Deployment  
-- Monitoring & Logging  
-- Documentation & Runbook  
-- Evaluation  
+---
+
+# Software Delivery Lifecycle Coverage
+
+Each project includes artifacts or workflows for the following stages:
+
+* Requirements & Planning
+* Design & Architecture
+* Implementation
+* Testing & QA
+* Code Review
+* CI/CD Pipeline
+* Deployment
+* Monitoring & Logging
+* Documentation & Runbook
+* Evaluation
+
+---
+
+# Key Skills Demonstrated
+
+These projects demonstrate practical skills across the full delivery lifecycle:
+
+* Translating business needs into clear technical requirements
+* Designing workflow-oriented systems and service architectures
+* Building AI-powered applications with structured outputs
+* Writing and validating prompts for different LLM providers
+* Implementing tests, validation logic, and evaluation datasets
+* Performing AI-assisted code review and quality checks
+* Setting up CI/CD pipelines and automated deployments
+* Implementing monitoring and operational health checks
+* Creating runbooks and operational documentation
+* Comparing model performance across OpenAI and Claude implementations
+* Building both scripted and low-code/no-code automation workflows
+
+---
+
+# Functional Overview
+
+This portfolio contains two workflow-focused projects.
+
+## 1. Technical User Project — AI Incident Triage & Release Notes API
+
+This project simulates an internal engineering tool used to analyze bug reports and operational incidents.
+
+The system accepts structured bug report inputs such as:
+
+* issue title
+* description
+* logs
+* recently changed files
+* service name
+
+The AI service then generates structured triage output including:
+
+* severity classification
+* probable component responsible
+* root cause hypothesis
+* recommended debugging actions
+* test plan suggestions
+* rollback strategy
+* release note summary
+* confidence score
+
+The application is implemented as an API using a lightweight service architecture and includes:
+
+* planning documents
+* architecture documentation
+* automated tests
+* AI-assisted code review
+* CI/CD deployment
+* monitoring and health checks
+* evaluation against a labeled dataset
+
+Two versions are implemented:
+
+* **OpenAI-based triage model**
+* **Claude-based triage model**
+
+---
+
+## 2. Non-Technical User Project — AI Feedback Operations Hub
+
+This project simulates a workflow used by operations or product teams to manage incoming feedback.
+
+The system ingests responses from tools such as:
+
+* Google Forms
+* Google Sheets
+
+Each feedback entry is automatically analyzed and classified by the AI system, which produces:
+
+* theme classification
+* sentiment analysis
+* urgency level
+* recommended next action
+* suggested owner or department
+* drafted follow-up email response
+* weekly summary reports
+
+This workflow is designed for users who may not be engineers and therefore emphasizes automation and accessibility.
+
+Two workflow approaches are included:
+
+**Scripted approach**
+
+* Google Apps Script automation
+* custom scripts for classification and response drafting
+
+**Automation tooling approach**
+
+* Zapier or Make integrations
+* Slack notifications
+* Gmail draft generation
+* scheduled reporting workflows
+
+Like the technical project, this system also has two model implementations:
+
+* **OpenAI-based classification workflow**
+* **Claude-based classification workflow**
+
+---
+
+# Tech Stack
+
+## Technical Project
+
+* Python
+* FastAPI
+* Pydantic
+* pytest
+* Docker
+* GitHub Actions
+* Render
+* UptimeRobot
+* OpenAI API or Anthropic API
+* HTTP client libraries such as `requests` or `httpx`
+
+---
+
+## Non-Technical Project
+
+* Google Sheets
+* Google Forms
+* Google Apps Script
+* Gmail
+* Slack
+* Zapier or Make
+* OpenAI API or Anthropic API
+
+Optional developer tooling may include:
+
+* clasp (Apps Script CLI)
+* JSON evaluation datasets
+* Markdown documentation
+
+---
+
+## Supporting Workflow Tools
+
+Additional tools used for planning and documentation include:
+
+* GitHub Issues
+* GitHub Projects
+* Markdown documentation
+* evaluation datasets
+* runbooks and operational procedures
+
+---
+
+# Why External Incident Tools Are Not Used
+
+This project intentionally does not depend on enterprise incident management platforms. The goal is to **demonstrate the underlying workflow and engineering concepts** rather than integrate a full commercial operations stack.
+
+Many organizations manage processes such as:
+
+* incident management
+* bug triage
+* support ticket classification
+* release coordination
+
+using specialized platforms like:
+
+* PagerDuty
+* Sentry
+* Jira
+
+However, these platforms provide large, integrated ecosystems that would obscure the **core learning objectives** of the project.
+
+Instead, these portfolio projects implement a **lightweight, self-contained workflow** that models the same operational steps:
+
+* structured issue intake
+* automated AI-assisted triage
+* engineering review
+* release note generation
+* evaluation of AI outputs
+
+By building these workflows directly in code and automation tools, the projects highlight practical skills in:
+
+* system design
+* AI integration
+* testing and validation
+* CI/CD deployment
+* operational monitoring
+* model evaluation
+
+while still reflecting the real operational problems that enterprise platforms help engineering teams manage.
 
 ---
 
