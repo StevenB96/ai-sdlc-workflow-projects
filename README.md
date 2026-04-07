@@ -2022,6 +2022,28 @@ If you want, I can turn this into a **copy-paste-ready repo skeleton** next, wit
 | Running evaluation      | Optional       |
 | CI/CD pipelines         | No             |
 
+### Process Flowchart
+
+```mermaid
+flowchart TD
+
+A[1 Write stakeholder notes<br>docs/stakeholder_notes.md]
+
+B[2 Generate planning docs<br>generate_requirements.py<br>generate_architecture.py]
+
+C[3 Implement API<br>edit app/main.py<br>provider.py<br>prompt.py]
+
+D[4 Run tests<br>pytest]
+
+E[5 Run service<br>uvicorn app.main:app]
+
+F[6 Evaluate model output<br>scripts/evaluate.py]
+
+G[7 Commit and deploy<br>git add / commit / push]
+
+A --> B --> C --> D --> E --> F --> G
+```
+
 ### OpenAI Interaction Diagram
 
 ```mermaid
