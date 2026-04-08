@@ -654,7 +654,7 @@ name: ci
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   test-build:
@@ -1719,7 +1719,7 @@ name: deploy-apps-script
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   deploy:

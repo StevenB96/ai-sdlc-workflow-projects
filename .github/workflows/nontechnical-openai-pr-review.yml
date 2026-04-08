@@ -16,8 +16,8 @@ jobs:
 
       - name: Get diff
         run: |
-          git fetch origin main
-          git diff origin/main...HEAD > diff.txt
+          git fetch origin master
+          git diff origin/master...HEAD > diff.txt
 
       - name: AI review
         env:

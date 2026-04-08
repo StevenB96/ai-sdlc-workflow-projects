@@ -6,11 +6,15 @@ on:
       - master
     paths:
       - "technical_openai/**"
+
   pull_request:
     branches:
       - master
     paths:
       - "technical_openai/**"
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   test:
@@ -21,20 +25,27 @@ jobs:
         working-directory: technical_openai
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Lint
         run: |
           pip install ruff
-          ruff .
+          ruff check .
 
       - name: Run tests
+        env:
+          PYTHONPATH: .
         run: |
           pip install pytest
           pytest
@@ -46,4 +57,5 @@ jobs:
           sleep 5
 
       - name: Health check
-        run: curl http://localhost:8000/health
+        run: |
+          curl http://localhost:8000/health
