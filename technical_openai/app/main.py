@@ -21,6 +21,9 @@ app = FastAPI(title="AI Incident Triage API", version="0.1.0")
 
 @app.get("/")
 def root():
+    """
+    Root endpoint returning basic API info and available paths.
+    """
     return {
         "message": "AI Incident Triage API",
         "docs": "/docs",
@@ -30,11 +33,18 @@ def root():
 
 @app.get("/health")
 def health():
+    """
+    Health check endpoint. Returns 'ok' if the API is running.
+    """
     return {"status": "ok"}
 
 
 @app.post("/triage", response_model=TriageResponse)
 def triage(req: TriageRequest):
+    """
+    Accepts an incident triage request and returns predicted severity
+    and probable component. Logs success or failure.
+    """
     try:
         result = triage_issue(req)
         validated = TriageResponse(**result)
