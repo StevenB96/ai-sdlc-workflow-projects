@@ -2,9 +2,13 @@ name: Non Technical OpenAI CI
 
 on:
   push:
+    branches:
+      - master
     paths:
       - "non_technical_openai/**"
   pull_request:
+    branches:
+      - master
     paths:
       - "non_technical_openai/**"
 

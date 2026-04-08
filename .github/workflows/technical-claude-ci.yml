@@ -2,9 +2,13 @@ name: Technical Claude CI
 
 on:
   push:
+    branches:
+      - master
     paths:
       - "technical_claude/**"
   pull_request:
+    branches:
+      - master
     paths:
       - "technical_claude/**"
 

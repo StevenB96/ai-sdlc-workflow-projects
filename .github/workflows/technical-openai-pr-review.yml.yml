@@ -2,6 +2,8 @@ name: Technical OpenAI PR Review
 
 on:
   pull_request:
+    branches:
+      - master
     paths:
       - "technical_openai/**"
 

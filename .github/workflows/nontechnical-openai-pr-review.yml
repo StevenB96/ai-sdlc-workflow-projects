@@ -2,6 +2,8 @@ name: Non Technical OpenAI PR Review
 
 on:
   pull_request:
+    branches:
+      - master
     paths:
       - "non_technical_openai/**"
 
