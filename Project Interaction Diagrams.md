@@ -47,7 +47,7 @@ end
 rect rgb(245,245,245)
   Note over CI,Deploy: CI/CD Pipeline
   CI->>CI: Build Docker image
-  CI->>Deploy: Trigger deploy on merge to main
+  CI->>Deploy: Trigger deploy on merge to master
 end
 
 rect rgb(245,245,245)
@@ -119,7 +119,7 @@ end
 rect rgb(245,245,245)
   Note over CI,Deploy: CI/CD Pipeline
   CI->>CI: Build Docker image
-  CI->>Deploy: Trigger deploy on merge to main
+  CI->>Deploy: Trigger deploy on merge to master
 end
 
 rect rgb(245,245,245)
