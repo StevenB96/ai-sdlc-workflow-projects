@@ -12,6 +12,9 @@ on:
     paths:
       - "technical_openai/**"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # Ensure Node.js 24 for JS actions
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -21,15 +24,18 @@ jobs:
         working-directory: technical_openai
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - name: Lint
+      - name: Lint code
         run: |
           pip install ruff
           ruff .
@@ -39,7 +45,7 @@ jobs:
           pip install pytest
           pytest
 
-      - name: Start API
+      - name: Start API for health check
         run: |
           pip install uvicorn
           uvicorn app.main:app &
