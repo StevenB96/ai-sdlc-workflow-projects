@@ -1,0 +1,24 @@
+name: Technical OpenAI PR Review
+
+on:
+  pull_request:
+    paths:
+      - "technical_openai/**"
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get PR diff
+        run: |
+          git fetch origin main
+          git diff origin/main...HEAD > diff.txt
+
+      - name: AI Code Review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python technical_openai/scripts/review_diff.py diff.txt

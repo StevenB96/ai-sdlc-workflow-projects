@@ -1,0 +1,24 @@
+name: Technical Claude PR Review
+
+on:
+  pull_request:
+    paths:
+      - "technical_claude/**"
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get diff
+        run: |
+          git fetch origin main
+          git diff origin/main...HEAD > diff.txt
+
+      - name: Claude Review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python technical_claude/scripts/review_diff.py diff.txt
