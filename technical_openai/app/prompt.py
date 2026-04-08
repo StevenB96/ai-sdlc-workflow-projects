@@ -17,5 +17,5 @@ Rules:
 - Be specific but concise.
 - If evidence is weak, say "insufficient evidence" explicitly.
 - confidence must be between 0 and 1.
-- release_note should be understandable by product/support stakeholders.
+- release_note should be understandable by product and support stakeholders.
 """

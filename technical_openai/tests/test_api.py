@@ -4,10 +4,16 @@ from app.main import app
 client = TestClient(app)
 
 
+def test_root():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json()["message"] == "AI Incident Triage API"
+
+
 def test_health():
-    r = client.get("/health")
-    assert r.status_code == 200
-    assert r.json() == {"status": "ok"}
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
 
 
 def test_triage(monkeypatch):
@@ -35,7 +41,7 @@ def test_triage(monkeypatch):
         "service_name": "auth-service",
     }
 
-    r = client.post("/triage", json=payload)
-    assert r.status_code == 200
-    assert r.json()["severity"] == "high"
-    assert r.json()["probable_component"] == "backend"
+    response = client.post("/triage", json=payload)
+    assert response.status_code == 200
+    assert response.json()["severity"] == "high"
+    assert response.json()["probable_component"] == "backend"

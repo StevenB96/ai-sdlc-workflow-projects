@@ -1,290 +1,242 @@
-# AI Workflow Portfolio Projects
+# AI Workflow Portfolio
 
-Below are two portfolio-ready personal projects designed to mirror real business workflows.
+This portfolio demonstrates how AI can be applied to realistic business workflows using a lightweight, practical toolset.
 
-The projects are structured to demonstrate both **technical engineering work** and **AI-enabled business process automation**.
+The implementation approach is intentionally simple and accessible:
 
-I designed them so that the portfolio contains:
+- **local code** for core application development
+- **GitHub** for source control, planning, and review
+- **GitHub Actions** for CI and automation
+- **Google Workspace** for forms, sheets, email, documents, chat, and lightweight workflow automation
+- **OpenAI or Claude** as the external model provider
 
-1. **One technical-user project**
-2. **One non-technical-user project**
-
-For **each project**, there are two independent implementations:
-
-* an **OpenAI / ChatGPT-only version**
-* an **Anthropic / Claude-only version**
-
-Each implementation also includes two development approaches:
-
-* **scripted/manual methods** — code and scripts run directly
-* **tooling-based methods** — workflow automation using platforms such as GitHub Actions, Zapier, Make, Render, or Apps Script triggers
-
-This structure provides realistic practice across the full software delivery lifecycle.
+The aim is not to recreate a full enterprise platform, but to show the core skills involved in designing, building, testing, documenting, and evaluating AI-assisted workflows responsibly.
 
 ---
 
-# Software Delivery Lifecycle Coverage
+## Portfolio structure
 
-Each project includes artifacts or workflows for the following stages:
+This portfolio contains two main projects:
 
-* Requirements & Planning
-* Design & Architecture
-* Implementation
-* Testing & QA
-* Code Review
-* CI/CD Pipeline
-* Deployment
-* Monitoring & Logging
-* Documentation & Runbook
-* Evaluation
+1. **Technical User Project**  
+   AI Incident Triage & Release Notes API
 
----
+2. **Non-Technical User Project**  
+   AI Feedback Operations Hub
 
-# Key Skills Demonstrated
+Each project has two provider-specific implementations:
 
-These projects demonstrate practical skills across the full delivery lifecycle:
+- **OpenAI**
+- **Claude**
 
-* Translating business needs into clear technical requirements
-* Designing workflow-oriented systems and service architectures
-* Building AI-powered applications with structured outputs
-* Writing and validating prompts for different LLM providers
-* Implementing tests, validation logic, and evaluation datasets
-* Performing AI-assisted code review and quality checks
-* Setting up CI/CD pipelines and automated deployments
-* Implementing monitoring and operational health checks
-* Creating runbooks and operational documentation
-* Comparing model performance across OpenAI and Claude implementations
-* Building both scripted and low-code/no-code automation workflows
+This gives four solutions:
+
+- `technical_openai/`
+- `technical_claude/`
+- `non_technical_openai/`
+- `non_technical_claude/`
+
+> Recommended build order:
+>
+> 1. `non_technical_openai/`
+> 2. `technical_openai/`
+> 3. `non_technical_claude/`
+> 4. `technical_claude/`
 
 ---
 
-# Functional Overview
+## Why this portfolio is useful
 
-This portfolio contains two workflow-focused projects.
+Modern teams increasingly use AI to support workflows such as:
 
-## 1. Technical User Project — AI Incident Triage & Release Notes API
+- bug and incident triage
+- support ticket classification
+- release note drafting
+- survey and feedback analysis
+- internal reporting
+- email drafting
+- escalation routing
 
-This project simulates an internal engineering tool used to analyze bug reports and operational incidents.
+In larger organisations, these workflows often sit inside wider ecosystems using tools such as:
 
-The system accepts structured bug report inputs such as:
+- Jira
+- ServiceNow
+- PagerDuty
+- Sentry
+- Zendesk
+- Salesforce
+- Slack or Microsoft Teams
+- workflow automation suites
+- observability and governance tooling
+- internal platforms and APIs
 
-* issue title
-* description
-* logs
-* recently changed files
-* service name
-
-The AI service then generates structured triage output including:
-
-* severity classification
-* probable component responsible
-* root cause hypothesis
-* recommended debugging actions
-* test plan suggestions
-* rollback strategy
-* release note summary
-* confidence score
-
-The application is implemented as an API using a lightweight service architecture and includes:
-
-* planning documents
-* architecture documentation
-* automated tests
-* AI-assisted code review
-* CI/CD deployment
-* monitoring and health checks
-* evaluation against a labeled dataset
-
-Two versions are implemented:
-
-* **OpenAI-based triage model**
-* **Claude-based triage model**
+This demo intentionally uses a smaller and more manageable stack so the underlying workflow design and delivery skills stay visible.
 
 ---
 
-## 2. Non-Technical User Project — AI Feedback Operations Hub
+## What this portfolio demonstrates
 
-This project simulates a workflow used by operations or product teams to manage incoming feedback.
+Across the repos, the portfolio demonstrates:
 
-The system ingests responses from tools such as:
-
-* Google Forms
-* Google Sheets
-
-Each feedback entry is automatically analyzed and classified by the AI system, which produces:
-
-* theme classification
-* sentiment analysis
-* urgency level
-* recommended next action
-* suggested owner or department
-* drafted follow-up email response
-* weekly summary reports
-
-This workflow is designed for users who may not be engineers and therefore emphasises automation and accessibility.
-
-Two workflow approaches are included:
-
-**Scripted approach**
-
-* Google Apps Script automation
-* custom scripts for classification and response drafting
-
-**Automation tooling approach**
-
-* Zapier or Make integrations
-* Slack notifications
-* Gmail draft generation
-* scheduled reporting workflows
-
-Like the technical project, this system also has two model implementations:
-
-* **OpenAI-based classification workflow**
-* **Claude-based classification workflow**
+- translating business needs into technical requirements
+- designing workflow-oriented systems
+- building AI-powered services with structured outputs
+- integrating OpenAI and Claude independently
+- writing and refining prompts
+- validating model outputs against schemas
+- adding tests and evaluation datasets
+- using AI-assisted code review with human oversight
+- setting up CI workflows in GitHub Actions
+- documenting runbooks, SOPs, and planning artefacts
+- using Google Workspace as a practical automation layer
+- comparing provider behaviour across quality, latency, and workflow fit
 
 ---
-
-# Tech Stack
-
-## Technical Project
-
-* Python
-* FastAPI
-* Pydantic
-* pytest
-* Docker
-* GitHub Actions
-* Render
-* UptimeRobot
-* OpenAI API or Anthropic API
-* HTTP client libraries such as `requests` or `httpx`
-
----
-
-## Non-Technical Project
-
-* Google Sheets
-* Google Forms
-* Google Apps Script
-* Gmail
-* Slack
-* Zapier or Make
-* OpenAI API or Anthropic API
-
-Optional developer tooling may include:
-
-* clasp (Apps Script CLI)
-* JSON evaluation datasets
-* Markdown documentation
-
----
-
-## Supporting Workflow Tools
-
-Additional tools used for planning and documentation include:
-
-* GitHub Issues
-* GitHub Projects
-* Markdown documentation
-* evaluation datasets
-* runbooks and operational procedures
-
----
-
-# Why External Incident Tools Are Not Used
-
-This project intentionally does not depend on enterprise incident management platforms. The goal is to **demonstrate the underlying workflow and engineering concepts** rather than integrate a full commercial operations stack.
-
-Many organisations manage processes such as:
-
-* incident management
-* bug triage
-* support ticket classification
-* release coordination
-
-using specialised platforms like:
-
-* PagerDuty
-* Sentry
-* Jira
-
-However, these platforms provide large, integrated ecosystems that would obscure the **core learning objectives** of the project.
-
-Instead, these portfolio projects implement a **lightweight, self-contained workflow** that models the same operational steps:
-
-* structured issue intake
-* automated AI-assisted triage
-* engineering review
-* release note generation
-* evaluation of AI outputs
-
-By building these workflows directly in code and automation tools, the projects highlight practical skills in:
-
-* system design
-* AI integration
-* testing and validation
-* CI/CD deployment
-* operational monitoring
-* model evaluation
-
-while still reflecting the real operational problems that enterprise platforms help engineering teams manage.
-
----
-
-# Before you start
 
 ## Business-safe defaults
 
-Use these on both projects:
+Use these defaults throughout:
 
 - **Do not send secrets, customer PII, or production credentials** to any model.
-- Use **sample or sanitised data** while learning.
-- Add **human approval** before anything customer-facing gets sent.
-- Keep **OpenAI and Claude versions in separate repos or folders** so you can compare them independently.
-- Put keys in:
-  - `.env` for Python projects
+- Use **sample or sanitised data only**.
+- Keep **human approval** before anything customer-facing is sent.
+- Treat AI outputs as **draft recommendations**, not autonomous actions.
+- Store keys in:
+  - `.env` for Python repos
   - **Script Properties** for Google Apps Script
-  - **GitHub Secrets** / **Zapier Connections** / **Make Connections** for automations
+  - **GitHub Secrets** for GitHub Actions
 
-## Suggested repo/folder layout
+---
 
-Create **four separate solutions** so they stay independent:
+# Monorepo layout
 
-- `ai-incident-triage-openai/`
-- `ai-incident-triage-claude/`
-- `ai-feedback-hub-openai/`
-- `ai-feedback-hub-claude/`
+Create this structure at the root of your portfolio repository:
+
+```text
+ai-workflow-portfolio/
+  README.md
+  technical_openai/
+    app/
+      __init__.py
+      main.py
+      prompt.py
+      provider.py
+      schemas.py
+    data/
+      eval_cases.jsonl
+    docs/
+      stakeholder_notes.md
+      runbook.md
+    scripts/
+      evaluate.py
+      generate_architecture.py
+      generate_requirements.py
+      review_diff.py
+    tests/
+      test_api.py
+    .github/
+      workflows/
+        ci.yml
+        pr-review.yml
+    .env.example
+    .gitignore
+    Dockerfile
+    requirements.txt
+
+  technical_claude/
+    app/
+      __init__.py
+      main.py
+      prompt.py
+      provider.py
+      schemas.py
+    data/
+      eval_cases.jsonl
+    docs/
+      stakeholder_notes.md
+      runbook.md
+    scripts/
+      evaluate.py
+      generate_architecture.py
+      generate_requirements.py
+      review_diff.py
+    tests/
+      test_api.py
+    .github/
+      workflows/
+        ci.yml
+        pr-review.yml
+    .env.example
+    .gitignore
+    Dockerfile
+    requirements.txt
+
+  non_technical_openai/
+    docs/
+      runbook.md
+      test_plan.md
+      workflow_charter.md
+    evaluation/
+      sample_feedback.csv
+    .github/
+      workflows/
+        deploy-apps-script.yml
+    .gitignore
+    Code.gs
+    appsscript.json
+
+  non_technical_claude/
+    docs/
+      runbook.md
+      test_plan.md
+      workflow_charter.md
+    evaluation/
+      sample_feedback.csv
+    .github/
+      workflows/
+        deploy-apps-script.yml
+    .gitignore
+    Code.gs
+    appsscript.json
+```
+
+---
+
+## Optional folder creation commands
+
+### macOS / Linux
+
+```bash
+mkdir -p technical_openai/{app,data,docs,scripts,tests,.github/workflows}
+mkdir -p technical_claude/{app,data,docs,scripts,tests,.github/workflows}
+mkdir -p non_technical_openai/{docs,evaluation,.github/workflows}
+mkdir -p non_technical_claude/{docs,evaluation,.github/workflows}
+```
+
+### Windows PowerShell
+
+```powershell
+mkdir technical_openai
+mkdir technical_openai\app, technical_openai\data, technical_openai\docs, technical_openai\scripts, technical_openai\tests, technical_openai\.github, technical_openai\.github\workflows
+
+mkdir technical_claude
+mkdir technical_claude\app, technical_claude\data, technical_claude\docs, technical_claude\scripts, technical_claude\tests, technical_claude\.github, technical_claude\.github\workflows
+
+mkdir non_technical_openai
+mkdir non_technical_openai\docs, non_technical_openai\evaluation, non_technical_openai\.github, non_technical_openai\.github\workflows
+
+mkdir non_technical_claude
+mkdir non_technical_claude\docs, non_technical_claude\evaluation, non_technical_claude\.github, non_technical_claude\.github\workflows
+```
 
 ---
 
 # Project 1 — Technical Users  
 # AI Incident Triage & Release Notes API
 
-## Why this project is good for business workflows
-
-This simulates a very common engineering workflow:
-
-- support or QA files a bug
-- engineering needs quick structured triage
-- release managers need a business-readable release note
-- dev teams need tests, PR review, CI/CD, deploys, runbooks, and evaluation
-
-You’ll practice:
-
-- turning ambiguous requirements into a PRD
-- architecture docs and ADR-style thinking
-- API development
-- automated testing
-- AI-assisted code review
-- CI/CD
-- deployment and monitoring
-- measurable evaluation
-
----
-
 ## What it does
 
-You build a small API that accepts:
+This API accepts:
 
 - issue title
 - description
@@ -292,7 +244,7 @@ You build a small API that accepts:
 - changed files
 - service name
 
-And returns structured JSON with:
+It returns structured JSON containing:
 
 - severity
 - probable component
@@ -303,80 +255,94 @@ And returns structured JSON with:
 - release note
 - confidence score
 
+## SDLC coverage
+
+This technical project demonstrates:
+
+- Requirements & Planning
+- Design & Architecture
+- Implementation
+- Testing & QA
+- Code Review
+- CI
+- Local deployment with Docker
+- Monitoring via `/health` and logs
+- Documentation & Runbook
+- Evaluation against labelled sample cases
+
 ---
 
-## Architecture
+## Technical project architecture
 
 ```mermaid
 flowchart TD
     A[Bug report / logs] --> B[FastAPI /triage endpoint]
-    B --> C[OpenAI or Claude provider]
+    B --> C[OpenAI or Claude API]
     C --> B
     B --> D[Structured JSON response]
     B --> E[Application logs]
-    F[GitHub Actions] --> G[Tests / PR review / build]
-    G --> H[Render deployment]
-    I[UptimeRobot] --> B
+    F[GitHub Actions] --> G[Lint / tests / Docker build]
 ```
 
 ---
 
-## Suggested backlog
+## Shared technical files  
+These files are the same in both:
 
-Use this backlog in GitHub Issues or a spreadsheet:
+- `technical_openai/`
+- `technical_claude/`
 
-1. Create stakeholder notes
-2. Generate PRD
-3. Generate architecture doc
-4. Build FastAPI `/triage` and `/health`
-5. Add unit tests
-6. Add evaluation dataset
-7. Add AI PR review workflow
-8. Add CI build/test workflow
-9. Deploy to Render
-10. Add monitoring + runbook
-11. Run evaluation and compare OpenAI vs Claude
+Create the following files in **both** folders.
 
 ---
 
-## Common scaffold for both technical repos
+## `technical_openai/.gitignore`  
+## `technical_claude/.gitignore`
 
-Use this same file structure in both `ai-incident-triage-openai` and `ai-incident-triage-claude`.
-
-```text
-ai-incident-triage-<provider>/
-  app/
-    main.py
-    prompt.py
-    provider.py
-    schemas.py
-  data/
-    eval_cases.jsonl
-  docs/
-    stakeholder_notes.md
-    runbook.md
-  scripts/
-    generate_requirements.py
-    generate_architecture.py
-    review_diff.py
-    evaluate.py
-  tests/
-    test_api.py
-  .github/
-    workflows/
-      ci.yml
-      pr-review.yml
-      deploy.yml
-  Dockerfile
-  requirements.txt
-  .env.example
+```gitignore
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+.DS_Store
+*.pyc
 ```
 
 ---
 
-## Common files for both technical repos
+## `technical_openai/Dockerfile`  
+## `technical_claude/Dockerfile`
 
-### `app/schemas.py`
+```dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app app
+COPY data data
+COPY scripts scripts
+
+EXPOSE 8000
+
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+```
+
+---
+
+## `technical_openai/app/__init__.py`  
+## `technical_claude/app/__init__.py`
+
+```python
+```
+
+---
+
+## `technical_openai/app/schemas.py`  
+## `technical_claude/app/schemas.py`
 
 ```python
 from typing import List, Literal
@@ -385,12 +351,14 @@ from pydantic import BaseModel, Field
 Severity = Literal["low", "medium", "high", "critical"]
 Component = Literal["frontend", "backend", "database", "auth", "infra", "unknown"]
 
+
 class TriageRequest(BaseModel):
     title: str = Field(..., min_length=3)
     description: str
     logs: str = ""
     changed_files: List[str] = Field(default_factory=list)
     service_name: str = "unknown"
+
 
 class TriageResponse(BaseModel):
     severity: Severity
@@ -403,7 +371,10 @@ class TriageResponse(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
 ```
 
-### `app/prompt.py`
+---
+
+## `technical_openai/app/prompt.py`  
+## `technical_claude/app/prompt.py`
 
 ```python
 TRIAGE_SYSTEM_PROMPT = """
@@ -425,36 +396,58 @@ Rules:
 - Be specific but concise.
 - If evidence is weak, say "insufficient evidence" explicitly.
 - confidence must be between 0 and 1.
-- release_note should be understandable by product/support stakeholders.
+- release_note should be understandable by product and support stakeholders.
 """
 ```
 
-### `app/main.py`
+---
+
+## `technical_openai/app/main.py`  
+## `technical_claude/app/main.py`
 
 ```python
 import logging
 import os
+
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
-from .schemas import TriageRequest, TriageResponse
+
 from .provider import triage_issue
+from .schemas import TriageRequest, TriageResponse
+
+load_dotenv()
 
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "INFO"),
-    format='{"time":"%(asctime)s","level":"%(levelname)s","message":"%(message)s"}'
+    format='{"time":"%(asctime)s","level":"%(levelname)s","message":"%(message)s"}',
 )
 
-app = FastAPI(title="AI Incident Triage API")
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="AI Incident Triage API", version="0.1.0")
+
+
+@app.get("/")
+def root():
+    return {
+        "message": "AI Incident Triage API",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
 
 @app.post("/triage", response_model=TriageResponse)
 def triage(req: TriageRequest):
     try:
         result = triage_issue(req)
         validated = TriageResponse(**result)
-        logging.info(
+
+        logger.info(
             'triage_success title="%s" severity="%s" component="%s"',
             req.title,
             validated.severity,
@@ -462,11 +455,14 @@ def triage(req: TriageRequest):
         )
         return validated
     except Exception as err:
-        logging.exception("triage_failed")
-        raise HTTPException(status_code=500, detail=f"triage failed: {err}")
+        logger.exception("triage_failed")
+        raise HTTPException(status_code=500, detail=f"triage failed: {err}") from err
 ```
 
-### `tests/test_api.py`
+---
+
+## `technical_openai/tests/test_api.py`  
+## `technical_claude/tests/test_api.py`
 
 ```python
 from fastapi.testclient import TestClient
@@ -474,10 +470,18 @@ from app.main import app
 
 client = TestClient(app)
 
+
+def test_root():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json()["message"] == "AI Incident Triage API"
+
+
 def test_health():
-    r = client.get("/health")
-    assert r.status_code == 200
-    assert r.json() == {"status": "ok"}
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
+
 
 def test_triage(monkeypatch):
     import app.main as main_module
@@ -504,18 +508,90 @@ def test_triage(monkeypatch):
         "service_name": "auth-service",
     }
 
-    r = client.post("/triage", json=payload)
-    assert r.status_code == 200
-    assert r.json()["severity"] == "high"
-    assert r.json()["probable_component"] == "backend"
+    response = client.post("/triage", json=payload)
+    assert response.status_code == 200
+    assert response.json()["severity"] == "high"
+    assert response.json()["probable_component"] == "backend"
 ```
 
-### `scripts/evaluate.py`
+---
+
+## `technical_openai/data/eval_cases.jsonl`  
+## `technical_claude/data/eval_cases.jsonl`
+
+```json
+{"input":{"title":"Login fails for SSO users","description":"All Okta sign-ins return 500 after today's deploy","logs":"KeyError: oidc_audience","changed_files":["auth.py","sso_config.py"],"service_name":"auth-service"},"expected":{"severity":"critical","probable_component":"auth"}}
+{"input":{"title":"Dashboard loads slowly","description":"Average load time increased from 2s to 9s for some users","logs":"SELECT caused full table scan","changed_files":["analytics_query.sql"],"service_name":"reporting"},"expected":{"severity":"medium","probable_component":"database"}}
+{"input":{"title":"Checkout button misaligned on mobile","description":"On iPhone SE the CTA is partially off screen","logs":"","changed_files":["checkout.css"],"service_name":"web-frontend"},"expected":{"severity":"low","probable_component":"frontend"}}
+```
+
+---
+
+## `technical_openai/docs/stakeholder_notes.md`  
+## `technical_claude/docs/stakeholder_notes.md`
+
+```markdown
+# Stakeholder Notes
+
+- Support and QA submit 10 to 20 bug reports per week.
+- Engineers spend too much time rewriting bug tickets into structured triage notes.
+- We need severity, probable component, root cause hypothesis, recommended next step, test plan, rollback plan, and a short release note.
+- Output must be valid JSON.
+- The system must include `/health`, logs, tests, CI, and a runbook.
+- Human review is required before any production action is taken.
+- Use sample or sanitised data only.
+```
+
+---
+
+## `technical_openai/docs/runbook.md`  
+## `technical_claude/docs/runbook.md`
+
+```markdown
+# Runbook
+
+## Purpose
+This service provides AI-assisted incident triage for sample engineering issues.
+
+## Health check
+- `GET /health` should return `200` with `{"status": "ok"}`
+
+## Common failures
+1. `401` or `403`
+   - API key missing or invalid
+   - Check `.env` locally or GitHub Secrets in CI
+
+2. `500` with JSON parsing error
+   - Inspect raw provider output
+   - Tighten the prompt
+   - Add a regression case to `data/eval_cases.jsonl`
+
+3. Latency spike
+   - Retry later
+   - Use a smaller model
+   - Reduce prompt size
+
+## Rollback
+- Revert the last commit
+- Re-run tests
+- Rebuild the Docker image
+
+## Operational notes
+- Never send secrets or customer PII to the model
+- Treat outputs as draft recommendations only
+- Add new failure examples to the evaluation dataset
+```
+
+---
+
+## `technical_openai/scripts/evaluate.py`  
+## `technical_claude/scripts/evaluate.py`
 
 ```python
 import json
 import sys
 import time
+
 import requests
 
 BASE_URL = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8000"
@@ -530,29 +606,31 @@ failures = []
 
 for case in cases:
     start = time.perf_counter()
-    r = requests.post(f"{BASE_URL}/triage", json=case["input"], timeout=90)
+    response = requests.post(f"{BASE_URL}/triage", json=case["input"], timeout=90)
     elapsed = time.perf_counter() - start
     latencies.append(elapsed)
 
-    r.raise_for_status()
-    pred = r.json()
+    response.raise_for_status()
+    predicted = response.json()
     expected = case["expected"]
 
-    severity_ok = pred["severity"] == expected["severity"]
-    component_ok = pred["probable_component"] == expected["probable_component"]
+    severity_ok = predicted["severity"] == expected["severity"]
+    component_ok = predicted["probable_component"] == expected["probable_component"]
 
     severity_hits += int(severity_ok)
     component_hits += int(component_ok)
 
     if not (severity_ok and component_ok):
-        failures.append({
-            "title": case["input"]["title"],
-            "predicted": {
-                "severity": pred["severity"],
-                "probable_component": pred["probable_component"],
-            },
-            "expected": expected,
-        })
+        failures.append(
+            {
+                "title": case["input"]["title"],
+                "predicted": {
+                    "severity": predicted["severity"],
+                    "probable_component": predicted["probable_component"],
+                },
+                "expected": expected,
+            }
+        )
 
 summary = {
     "cases": len(cases),
@@ -565,32 +643,10 @@ summary = {
 print(json.dumps(summary, indent=2))
 ```
 
-### `data/eval_cases.jsonl`
+---
 
-```json
-{"input":{"title":"Login fails for SSO users","description":"All Okta sign-ins return 500 after today's deploy","logs":"KeyError: oidc_audience","changed_files":["auth.py","sso_config.py"],"service_name":"auth-service"},"expected":{"severity":"critical","probable_component":"auth"}}
-{"input":{"title":"Dashboard loads slowly","description":"Average load time increased from 2s to 9s for some users","logs":"SELECT caused full table scan","changed_files":["analytics_query.sql"],"service_name":"reporting"},"expected":{"severity":"medium","probable_component":"database"}}
-{"input":{"title":"Checkout button misaligned on mobile","description":"On iPhone SE the CTA is partially off screen","logs":"","changed_files":["checkout.css"],"service_name":"web-frontend"},"expected":{"severity":"low","probable_component":"frontend"}}
-```
-
-### `Dockerfile`
-
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY app app
-COPY data data
-COPY scripts scripts
-
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
-```
-
-### `.github/workflows/ci.yml`
+## `technical_openai/.github/workflows/ci.yml`  
+## `technical_claude/.github/workflows/ci.yml`
 
 ```yaml
 name: ci
@@ -603,6 +659,7 @@ on:
 jobs:
   test-build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -610,62 +667,51 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
-      - run: ruff check .
-      - run: pytest -q
-      - run: docker build -t ai-incident-triage .
-```
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-### `.github/workflows/deploy.yml`
+      - name: Lint
+        run: ruff check .
 
-```yaml
-name: deploy
+      - name: Run tests
+        run: pytest -q
 
-on:
-  push:
-    branches: [main]
+      - name: Build Docker image
+        run: docker build -t ai-incident-triage .
 
-jobs:
-  deploy-render:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger Render deploy
-        run: curl -X POST "$RENDER_DEPLOY_HOOK_URL"
-        env:
-          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-```
-
-### Example `docs/stakeholder_notes.md`
-
-```markdown
-# Stakeholder Notes
-
-- Support and QA submit 10-20 bug reports per week.
-- Engineers spend too much time rewriting bug tickets into structured triage notes.
-- We need severity, probable component, root cause hypothesis, recommended next step, test plan, rollback plan, and a short release note.
-- Output must be valid JSON.
-- Must include /health, logs, tests, CI/CD, deployment, and a runbook.
-- Human review is required before production action is taken.
+      - name: Smoke test container
+        run: |
+          docker run -d --name triage-smoke -p 8000:8000 ai-incident-triage
+          sleep 5
+          curl --fail http://localhost:8000/health
+          docker stop triage-smoke
 ```
 
 ---
 
-# Technical Project — OpenAI / ChatGPT Solution
+# Technical project — OpenAI version
 
-## `requirements.txt`
+Create these files in `technical_openai/`.
+
+---
+
+## `technical_openai/requirements.txt`
 
 ```text
 fastapi
 uvicorn[standard]
 pydantic
 openai
+python-dotenv
 pytest
 httpx
 ruff
 requests
 ```
 
-## `.env.example`
+---
+
+## `technical_openai/.env.example`
 
 ```text
 OPENAI_API_KEY=your_key_here
@@ -673,18 +719,29 @@ OPENAI_MODEL=gpt-4o-mini
 LOG_LEVEL=INFO
 ```
 
-## `app/provider.py`
+---
+
+## `technical_openai/app/provider.py`
 
 ```python
 import json
 import os
+from dotenv import load_dotenv
 from openai import OpenAI
+
 from .prompt import TRIAGE_SYSTEM_PROMPT
 from .schemas import TriageRequest
 
+load_dotenv()
+
+
 def triage_issue(req: TriageRequest) -> dict:
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set")
+
     model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    client = OpenAI(api_key=api_key)
 
     user_prompt = f"""
 Issue title: {req.title}
@@ -694,13 +751,13 @@ Description:
 {req.description}
 
 Logs:
-{req.logs}
+{req.logs or "N/A"}
 
 Changed files:
 {", ".join(req.changed_files) if req.changed_files else "N/A"}
 """
 
-    resp = client.chat.completions.create(
+    response = client.chat.completions.create(
         model=model,
         temperature=0.2,
         response_format={"type": "json_object"},
@@ -710,22 +767,37 @@ Changed files:
         ],
     )
 
-    return json.loads(resp.choices[0].message.content)
+    content = response.choices[0].message.content
+    if not content:
+        raise ValueError("Model returned empty content")
+
+    return json.loads(content)
 ```
 
-## `scripts/generate_requirements.py`
+---
+
+## `technical_openai/scripts/generate_requirements.py`
 
 ```python
 import os
 import sys
+
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
 
 if len(sys.argv) != 2:
     raise SystemExit("usage: python scripts/generate_requirements.py <stakeholder_notes.md>")
 
 notes = open(sys.argv[1], "r", encoding="utf-8").read()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is not set")
+
 model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+client = OpenAI(api_key=api_key)
 
 prompt = f"""
 Convert these stakeholder notes into a concise PRD in Markdown.
@@ -746,7 +818,7 @@ Stakeholder notes:
 {notes}
 """
 
-resp = client.chat.completions.create(
+response = client.chat.completions.create(
     model=model,
     temperature=0.2,
     messages=[
@@ -755,22 +827,33 @@ resp = client.chat.completions.create(
     ],
 )
 
-print(resp.choices[0].message.content)
+print(response.choices[0].message.content)
 ```
 
-## `scripts/generate_architecture.py`
+---
+
+## `technical_openai/scripts/generate_architecture.py`
 
 ```python
 import os
 import sys
+
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
 
 if len(sys.argv) != 2:
     raise SystemExit("usage: python scripts/generate_architecture.py <requirements.md>")
 
 prd = open(sys.argv[1], "r", encoding="utf-8").read()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is not set")
+
 model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+client = OpenAI(api_key=api_key)
 
 prompt = f"""
 Based on this PRD, write a lightweight architecture document in Markdown.
@@ -789,31 +872,42 @@ PRD:
 {prd}
 """
 
-resp = client.chat.completions.create(
+response = client.chat.completions.create(
     model=model,
     temperature=0.2,
     messages=[
-        {"role": "system", "content": "You are a staff engineer writing an architecture doc."},
+        {"role": "system", "content": "You are a staff engineer writing an architecture document."},
         {"role": "user", "content": prompt},
     ],
 )
 
-print(resp.choices[0].message.content)
+print(response.choices[0].message.content)
 ```
 
-## `scripts/review_diff.py`
+---
+
+## `technical_openai/scripts/review_diff.py`
 
 ```python
 import os
 import sys
+
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
 
 if len(sys.argv) != 2:
     raise SystemExit("usage: python scripts/review_diff.py <diff_file>")
 
 diff = open(sys.argv[1], "r", encoding="utf-8").read()[:120000]
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is not set")
+
 model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+client = OpenAI(api_key=api_key)
 
 prompt = f"""
 Review this git diff like a senior software engineer.
@@ -836,7 +930,7 @@ Diff:
 {diff}
 """
 
-resp = client.chat.completions.create(
+response = client.chat.completions.create(
     model=model,
     temperature=0.1,
     messages=[
@@ -845,10 +939,12 @@ resp = client.chat.completions.create(
     ],
 )
 
-print(resp.choices[0].message.content)
+print(response.choices[0].message.content)
 ```
 
-## `.github/workflows/pr-review.yml`
+---
+
+## `technical_openai/.github/workflows/pr-review.yml`
 
 ```yaml
 name: ai-pr-review
@@ -864,44 +960,74 @@ permissions:
 jobs:
   review:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Skip when API key is not configured
+        if: ${{ secrets.OPENAI_API_KEY == '' }}
+        run: echo "OPENAI_API_KEY not set; skipping AI review."
+
       - uses: actions/checkout@v4
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
         with:
           fetch-depth: 0
 
       - uses: actions/setup-python@v5
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
+        run: pip install -r requirements.txt
 
       - name: Build diff
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
         run: |
           git fetch origin ${{ github.base_ref }} --depth=1
           git diff origin/${{ github.base_ref }}...HEAD > pr.diff
 
       - name: Generate AI review
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
         run: python scripts/review_diff.py pr.diff > review.md
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: gpt-4o-mini
 
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - name: Post sticky PR comment
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           path: review.md
 ```
 
-## How to run the OpenAI technical solution
+---
+
+## How to run `technical_openai/`
+
+### Local setup
 
 ```bash
+cd technical_openai
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env
+```
+
+Edit `.env` and add your real `OPENAI_API_KEY`.
+
+### Run locally
+
+```bash
 uvicorn app.main:app --env-file .env --reload
 ```
 
-Test it:
+Open:
+
+- API docs: http://localhost:8000/docs
+- Health check: http://localhost:8000/health
+
+### Test the API
 
 ```bash
 curl -X POST http://localhost:8000/triage \
@@ -910,50 +1036,57 @@ curl -X POST http://localhost:8000/triage \
     "title": "SSO users get 500 after deploy",
     "description": "After the latest auth release, all Okta users fail login",
     "logs": "KeyError: oidc_audience",
-    "changed_files": ["auth.py","sso_config.py"],
+    "changed_files": ["auth.py", "sso_config.py"],
     "service_name": "auth-service"
   }'
 ```
 
-Generate planning docs:
+### Generate planning documents
 
 ```bash
 python scripts/generate_requirements.py docs/stakeholder_notes.md > docs/requirements.md
 python scripts/generate_architecture.py docs/requirements.md > docs/architecture.md
 ```
 
-Run tests and evaluation:
+### Run tests and evaluation
 
 ```bash
 pytest -q
 python scripts/evaluate.py http://localhost:8000
 ```
 
-Deploy locally with Docker:
+### Run with Docker
 
 ```bash
-docker build -t triage-openai .
-docker run --rm -p 8000:8000 --env-file .env triage-openai
+docker build -t technical-openai .
+docker run --rm -p 8000:8000 --env-file .env technical-openai
 ```
 
 ---
 
-# Technical Project — Anthropic / Claude Solution
+# Technical project — Claude version
 
-## `requirements.txt`
+Create these files in `technical_claude/`.
+
+---
+
+## `technical_claude/requirements.txt`
 
 ```text
 fastapi
 uvicorn[standard]
 pydantic
 anthropic
+python-dotenv
 pytest
 httpx
 ruff
 requests
 ```
 
-## `.env.example`
+---
+
+## `technical_claude/.env.example`
 
 ```text
 ANTHROPIC_API_KEY=your_key_here
@@ -961,15 +1094,23 @@ ANTHROPIC_MODEL=claude-3-5-sonnet-20240620
 LOG_LEVEL=INFO
 ```
 
-## `app/provider.py`
+---
+
+## `technical_claude/app/provider.py`
 
 ```python
 import json
 import os
 import re
+
 from anthropic import Anthropic
+from dotenv import load_dotenv
+
 from .prompt import TRIAGE_SYSTEM_PROMPT
 from .schemas import TriageRequest
+
+load_dotenv()
+
 
 def extract_json(text: str) -> dict:
     match = re.search(r"\{.*\}", text, re.S)
@@ -977,12 +1118,17 @@ def extract_json(text: str) -> dict:
         raise ValueError(f"No JSON found in model output: {text}")
     return json.loads(match.group(0))
 
+
 def triage_issue(req: TriageRequest) -> dict:
-    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    api_key = os.getenv("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise RuntimeError("ANTHROPIC_API_KEY is not set")
+
     model = os.getenv("ANTHROPIC_MODEL", "claude-3-5-sonnet-20240620")
+    client = Anthropic(api_key=api_key)
 
     user_prompt = f"""
-Analyze this issue and return JSON only.
+Analyse this issue and return JSON only.
 
 Issue title: {req.title}
 Service: {req.service_name}
@@ -991,13 +1137,13 @@ Description:
 {req.description}
 
 Logs:
-{req.logs}
+{req.logs or "N/A"}
 
 Changed files:
 {", ".join(req.changed_files) if req.changed_files else "N/A"}
 """
 
-    resp = client.messages.create(
+    response = client.messages.create(
         model=model,
         max_tokens=900,
         temperature=0.2,
@@ -1005,23 +1151,34 @@ Changed files:
         messages=[{"role": "user", "content": user_prompt}],
     )
 
-    text = "".join(block.text for block in resp.content if getattr(block, "type", "") == "text")
+    text = "".join(block.text for block in response.content if getattr(block, "type", "") == "text")
     return extract_json(text)
 ```
 
-## `scripts/generate_requirements.py`
+---
+
+## `technical_claude/scripts/generate_requirements.py`
 
 ```python
 import os
 import sys
+
 from anthropic import Anthropic
+from dotenv import load_dotenv
+
+load_dotenv()
 
 if len(sys.argv) != 2:
     raise SystemExit("usage: python scripts/generate_requirements.py <stakeholder_notes.md>")
 
 notes = open(sys.argv[1], "r", encoding="utf-8").read()
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+api_key = os.getenv("ANTHROPIC_API_KEY")
+if not api_key:
+    raise RuntimeError("ANTHROPIC_API_KEY is not set")
+
 model = os.getenv("ANTHROPIC_MODEL", "claude-3-5-sonnet-20240620")
+client = Anthropic(api_key=api_key)
 
 prompt = f"""
 Convert these stakeholder notes into a concise PRD in Markdown.
@@ -1042,7 +1199,7 @@ Stakeholder notes:
 {notes}
 """
 
-resp = client.messages.create(
+response = client.messages.create(
     model=model,
     max_tokens=1500,
     temperature=0.2,
@@ -1050,22 +1207,33 @@ resp = client.messages.create(
     messages=[{"role": "user", "content": prompt}],
 )
 
-print("".join(block.text for block in resp.content if getattr(block, "type", "") == "text"))
+print("".join(block.text for block in response.content if getattr(block, "type", "") == "text"))
 ```
 
-## `scripts/generate_architecture.py`
+---
+
+## `technical_claude/scripts/generate_architecture.py`
 
 ```python
 import os
 import sys
+
 from anthropic import Anthropic
+from dotenv import load_dotenv
+
+load_dotenv()
 
 if len(sys.argv) != 2:
     raise SystemExit("usage: python scripts/generate_architecture.py <requirements.md>")
 
 prd = open(sys.argv[1], "r", encoding="utf-8").read()
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+api_key = os.getenv("ANTHROPIC_API_KEY")
+if not api_key:
+    raise RuntimeError("ANTHROPIC_API_KEY is not set")
+
 model = os.getenv("ANTHROPIC_MODEL", "claude-3-5-sonnet-20240620")
+client = Anthropic(api_key=api_key)
 
 prompt = f"""
 Based on this PRD, write a lightweight architecture document in Markdown.
@@ -1084,30 +1252,41 @@ PRD:
 {prd}
 """
 
-resp = client.messages.create(
+response = client.messages.create(
     model=model,
     max_tokens=1800,
     temperature=0.2,
-    system="You are a staff engineer writing an architecture doc.",
+    system="You are a staff engineer writing an architecture document.",
     messages=[{"role": "user", "content": prompt}],
 )
 
-print("".join(block.text for block in resp.content if getattr(block, "type", "") == "text"))
+print("".join(block.text for block in response.content if getattr(block, "type", "") == "text"))
 ```
 
-## `scripts/review_diff.py`
+---
+
+## `technical_claude/scripts/review_diff.py`
 
 ```python
 import os
 import sys
+
 from anthropic import Anthropic
+from dotenv import load_dotenv
+
+load_dotenv()
 
 if len(sys.argv) != 2:
     raise SystemExit("usage: python scripts/review_diff.py <diff_file>")
 
 diff = open(sys.argv[1], "r", encoding="utf-8").read()[:120000]
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+api_key = os.getenv("ANTHROPIC_API_KEY")
+if not api_key:
+    raise RuntimeError("ANTHROPIC_API_KEY is not set")
+
 model = os.getenv("ANTHROPIC_MODEL", "claude-3-5-sonnet-20240620")
+client = Anthropic(api_key=api_key)
 
 prompt = f"""
 Review this git diff like a senior software engineer.
@@ -1130,7 +1309,7 @@ Diff:
 {diff}
 """
 
-resp = client.messages.create(
+response = client.messages.create(
     model=model,
     max_tokens=1600,
     temperature=0.1,
@@ -1138,10 +1317,12 @@ resp = client.messages.create(
     messages=[{"role": "user", "content": prompt}],
 )
 
-print("".join(block.text for block in resp.content if getattr(block, "type", "") == "text"))
+print("".join(block.text for block in response.content if getattr(block, "type", "") == "text"))
 ```
 
-## `.github/workflows/pr-review.yml`
+---
+
+## `technical_claude/.github/workflows/pr-review.yml`
 
 ```yaml
 name: ai-pr-review
@@ -1157,195 +1338,177 @@ permissions:
 jobs:
   review:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Skip when API key is not configured
+        if: ${{ secrets.ANTHROPIC_API_KEY == '' }}
+        run: echo "ANTHROPIC_API_KEY not set; skipping AI review."
+
       - uses: actions/checkout@v4
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         with:
           fetch-depth: 0
 
       - uses: actions/setup-python@v5
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: pip install -r requirements.txt
 
       - name: Build diff
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         run: |
           git fetch origin ${{ github.base_ref }} --depth=1
           git diff origin/${{ github.base_ref }}...HEAD > pr.diff
 
       - name: Generate AI review
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         run: python scripts/review_diff.py pr.diff > review.md
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_MODEL: claude-3-5-sonnet-20240620
 
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - name: Post sticky PR comment
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           path: review.md
 ```
 
-## How to run the Claude technical solution
+---
 
-Same as the OpenAI version, but use the Anthropic repo and env vars:
+## How to run `technical_claude/`
+
+### Local setup
 
 ```bash
+cd technical_claude
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env
+```
+
+Edit `.env` and add your real `ANTHROPIC_API_KEY`.
+
+### Run locally
+
+```bash
 uvicorn app.main:app --env-file .env --reload
-pytest -q
+```
+
+Open:
+
+- API docs: http://localhost:8000/docs
+- Health check: http://localhost:8000/health
+
+### Test the API
+
+```bash
+curl -X POST http://localhost:8000/triage \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "SSO users get 500 after deploy",
+    "description": "After the latest auth release, all Okta users fail login",
+    "logs": "KeyError: oidc_audience",
+    "changed_files": ["auth.py", "sso_config.py"],
+    "service_name": "auth-service"
+  }'
+```
+
+### Generate planning documents
+
+```bash
 python scripts/generate_requirements.py docs/stakeholder_notes.md > docs/requirements.md
 python scripts/generate_architecture.py docs/requirements.md > docs/architecture.md
+```
+
+### Run tests and evaluation
+
+```bash
+pytest -q
 python scripts/evaluate.py http://localhost:8000
 ```
 
----
+### Run with Docker
 
-## Technical project SDLC map
-
-This SDLC map applies to **both** technical implementations.
-
-| SDLC Step | Scripted/manual approach | Tooling-based approach |
-|---|---|---|
-| Requirements & Planning | `docs/stakeholder_notes.md` + `generate_requirements.py` | GitHub Issues, milestones, GitHub Project board |
-| Design & Architecture | `generate_architecture.py` → `docs/architecture.md` | PR review of architecture doc, Mermaid diagram in repo |
-| Implementation | FastAPI app files | branch-per-feature workflow, PR template |
-| Testing & QA | `pytest`, `curl`, `scripts/evaluate.py` | GitHub Actions CI required before merge |
-| Code Review | `scripts/review_diff.py` locally or in terminal | AI PR review workflow comments + human approval |
-| CI/CD Pipeline | local Docker build and manual deploy hook | GitHub Actions build/test + Render deploy |
-| Deployment | `docker build` / `docker run` | auto deploy on merge to `main` |
-| Monitoring & Logging | structured stdout logs, `/health` | Render logs, UptimeRobot, Better Stack optional |
-| Documentation & Runbook | `README.md`, `docs/runbook.md` | repo wiki / release notes / PR templates |
-| Evaluation | `data/eval_cases.jsonl` + `scripts/evaluate.py` | scheduled weekly evaluation job if desired |
-
----
-
-## Technical project tooling-based extras
-
-These are the “modern business workflow” pieces most employers care about:
-
-### 1. Requirements & backlog tooling
-Use GitHub Issues with labels:
-
-- `feature`
-- `bug`
-- `infra`
-- `docs`
-- `evaluation`
-
-### 2. Branch protection
-Require:
-
-- passing CI
-- at least 1 review
-- no direct pushes to `main`
-
-### 3. Deployment
-Use **Render**:
-
-1. Push repo to GitHub
-2. Create a Render Web Service from the repo
-3. Set env vars:
-   - `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
-   - `OPENAI_MODEL` or `ANTHROPIC_MODEL`
-4. Set health check path to `/health`
-5. Copy Render Deploy Hook URL into GitHub secret `RENDER_DEPLOY_HOOK_URL`
-
-### 4. Monitoring
-Use:
-
-- **UptimeRobot** to ping `/health`
-- Render logs for request failures
-- provider usage dashboards for token and cost tracking
-
-### 5. Runbook template (`docs/runbook.md`)
-Keep this short and operational:
-
-```markdown
-# Runbook
-
-## Health check
-GET /health should return 200.
-
-## Common failures
-1. 401/403 -> API key missing or invalid
-2. 500 with JSON parsing error -> inspect raw model output, tighten prompt, add regression test
-3. Latency spike -> switch to smaller model or reduce prompt size
-
-## Rollback
-- Revert last commit
-- Merge fix or redeploy previous Render version
-
-## Escalation
-- Open incident issue
-- Attach logs
-- Add failing sample to data/eval_cases.jsonl
+```bash
+docker build -t technical-claude .
+docker run --rm -p 8000:8000 --env-file .env technical-claude
 ```
+
+---
+
+# Technical project evaluation
+
+Useful metrics to track after each change:
+
+- severity accuracy
+- component accuracy
+- schema-valid response rate
+- average latency
+- parsing reliability
+- release note usefulness
+- quality of AI-assisted code review comments
 
 ---
 
 # Project 2 — Non-Technical Users  
-# AI Feedback Ops Hub
-
-## Why this project is good for business workflows
-
-This simulates a common operations workflow for:
-
-- customer success
-- product ops
-- HR surveys
-- internal feedback intake
-- sales / account management digests
-
-You’ll practice:
-
-- workflow design
-- approval gates
-- spreadsheet-driven operations
-- low-code automation
-- monitoring business processes
-- documenting SOPs
-- evaluating quality and time saved
-
----
+# AI Feedback Operations Hub
 
 ## What it does
 
-You build a workflow that:
+This workflow:
 
-1. collects feedback from a Google Form or sheet
-2. classifies each item by:
+1. collects feedback from a Google Form or Google Sheet
+2. classifies each entry by:
    - theme
    - sentiment
    - urgency
    - next action
    - owner suggestion
-3. drafts a follow-up message
+3. drafts a follow-up email
 4. flags urgent items
-5. produces a weekly summary doc/email
+5. creates a weekly Google Doc digest
+6. emails the digest to a manager
+
+## SDLC coverage
+
+This non-technical project demonstrates:
+
+- Requirements & Planning
+- Workflow design
+- Apps Script implementation
+- Testing with sample submissions
+- Review and approval checkpoints
+- Optional GitHub-based deployment with `clasp`
+- Monitoring through sheet status and email/chat alerts
+- SOP and runbook documentation
+- Evaluation using a Google Sheet
 
 ---
 
-## Architecture
+## Non-technical project architecture
 
 ```mermaid
 flowchart TD
     A[Google Form] --> B[Google Sheet]
-    B --> C[Apps Script or Zapier/Make]
-    C --> D[OpenAI or Claude]
+    B --> C[Google Apps Script trigger]
+    C --> D[OpenAI or Claude API]
     D --> C
     C --> E[Updated sheet rows]
-    C --> F[Slack alert for urgent items]
+    C --> F[Google Chat alert or manager email]
     C --> G[Weekly Google Doc digest]
-    C --> H[Email to manager]
 ```
 
 ---
 
 ## Recommended Google Sheet columns
 
-Create or link a form so the sheet has:
+Your form-linked sheet should begin with:
 
 - **A** Timestamp
 - **B** Customer
@@ -1362,68 +1525,236 @@ The script will add:
 - **J** Follow-up Draft
 - **K** Status
 
----
+Optional additional columns:
 
-## Suggested backlog
-
-1. Define workflow charter
-2. Create form and sheet
-3. Add Apps Script
-4. Test with 5 sample submissions
-5. Add weekly digest
-6. Add Slack alerts
-7. Add `clasp` repo and CI/CD
-8. Add no-code version in Zapier or Make
-9. Document SOP / runbook
-10. Evaluate accuracy and time saved
+- **L** Reviewer
+- **M** Approved?
+- **N** Notes
 
 ---
 
-## Planning prompts for non-technical users
+## Shared non-technical files  
+These files are the same in both:
 
-Use these directly in ChatGPT or Claude web UI if you want a no-code planning phase.
+- `non_technical_openai/`
+- `non_technical_claude/`
 
-### Requirements & Planning prompt
+Create the following files in **both** folders.
 
-```text
-You are an operations analyst. Turn the notes below into a workflow charter with:
-- objective
-- stakeholders
-- input fields
-- output fields
-- approval steps
-- exception paths
-- KPIs
-- rollout plan
-- risks and mitigations
-```
+---
 
-### Design & Architecture prompt
+## `non_technical_openai/.gitignore`  
+## `non_technical_claude/.gitignore`
 
-```text
-Design a process map for a Google Form -> Google Sheet -> AI classification -> urgent alert -> weekly digest workflow.
-Include:
-- actors
-- systems
-- data fields
-- business rules
-- approval points
-- failure handling
-- reporting cadence
+```gitignore
+.clasp.json
+node_modules/
+.DS_Store
 ```
 
 ---
 
-# Non-Technical Project — Shared Apps Script Helpers
+## `non_technical_openai/appsscript.json`  
+## `non_technical_claude/appsscript.json`
 
-Create **two separate Apps Script projects**:
+```json
+{
+  "timeZone": "Etc/UTC",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/documents",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/script.scriptapp",
+    "https://www.googleapis.com/auth/script.send_mail"
+  ]
+}
+```
 
-- one for OpenAI
-- one for Claude
+---
 
-In each project, paste the shared helper code below, then paste the provider-specific block after it.
+## `non_technical_openai/docs/workflow_charter.md`  
+## `non_technical_claude/docs/workflow_charter.md`
 
-## Shared `Code.gs` helpers
+```markdown
+# Workflow Charter
+
+## Objective
+Classify incoming feedback from a Google Form, route urgent items for attention, and produce weekly management summaries.
+
+## Stakeholders
+- Manager or operations lead
+- Product or support reviewer
+- Internal users submitting feedback
+
+## Inputs
+- Customer
+- Channel
+- Feedback
+
+## Outputs
+- Theme
+- Sentiment
+- Urgency
+- Next Action
+- Owner Suggestion
+- Follow-up Draft
+- Weekly summary
+
+## Approval model
+- AI drafts are advisory
+- Human review is required before any customer-facing response is sent
+
+## Risks
+- Incorrect urgency classification
+- Over-confident drafting
+- Inconsistent themes on ambiguous input
+
+## Mitigations
+- Use sanitised data only
+- Review urgent items manually
+- Track output quality in an evaluation sheet
+
+## Success measures
+- Reduced manual handling time
+- Acceptable theme and urgency accuracy
+- Positive reviewer feedback on weekly summaries
+```
+
+---
+
+## `non_technical_openai/docs/runbook.md`  
+## `non_technical_claude/docs/runbook.md`
+
+```markdown
+# Runbook
+
+## Purpose
+This Apps Script workflow processes Google Form responses and classifies them with AI.
+
+## Setup checks
+- Form is linked to the correct sheet
+- Sheet name is `Form Responses 1`
+- Script Properties are configured
+- Triggers have been created with the correct setup function
+
+## Common failures
+1. Missing Script Property
+   - Add the missing property in Apps Script settings
+
+2. HTTP error from provider
+   - Check API key
+   - Check model name
+   - Review provider quota or billing
+
+3. JSON parsing error
+   - Inspect raw response
+   - Tighten the prompt
+   - Re-run on a sample row
+
+## Manual recovery
+- Mark failed rows as `MANUAL_REVIEW`
+- Review the feedback manually
+- Add notes in the sheet if needed
+
+## Weekly digest
+- Can run automatically every Monday
+- Can also be run manually from the Apps Script editor
+
+## Safety
+- Do not auto-send customer responses
+- Use outputs as drafts only
+- Do not send secrets or production-sensitive content to the model
+```
+
+---
+
+## `non_technical_openai/docs/test_plan.md`  
+## `non_technical_claude/docs/test_plan.md`
+
+```markdown
+# Test Plan
+
+## Test records
+Submit at least:
+- one positive item
+- one neutral or ambiguous item
+- one urgent negative item
+
+## Expected checks
+- output columns E to K are populated
+- status becomes `PROCESSED`
+- urgent items trigger manager email
+- urgent items optionally trigger Google Chat
+- weekly digest creates a Google Doc
+- weekly digest sends an email to the manager
+
+## Failure handling
+- simulated provider errors should set status to `MANUAL_REVIEW`
+- manager should receive an error email
+```
+
+---
+
+## `non_technical_openai/evaluation/sample_feedback.csv`  
+## `non_technical_claude/evaluation/sample_feedback.csv`
+
+```csv
+Customer,Channel,Feedback
+Acme Ltd,Email,"The onboarding guide was clear and helpful, thank you."
+Northwind,Support call,"We are frustrated that reporting exports are failing intermittently."
+Globex,Form,"The mobile layout is confusing on smaller screens."
+Innotech,Email,"Please contact us urgently. Billing appears incorrect for multiple users."
+```
+
+---
+
+## `non_technical_openai/.github/workflows/deploy-apps-script.yml`  
+## `non_technical_claude/.github/workflows/deploy-apps-script.yml`
+
+```yaml
+name: deploy-apps-script
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    if: ${{ secrets.CLASPRC_JSON != '' && secrets.CLASP_JSON != '' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install clasp
+        run: npm install -g @google/clasp
+
+      - name: Restore clasp credentials
+        run: printf '%s' '${{ secrets.CLASPRC_JSON }}' > ~/.clasprc.json
+
+      - name: Restore clasp project config
+        run: printf '%s' '${{ secrets.CLASP_JSON }}' > .clasp.json
+
+      - name: Push Apps Script project
+        run: clasp push --force
+```
+
+---
+
+# Non-technical project — OpenAI version
+
+Create this file in `non_technical_openai/`.
+
+---
+
+## `non_technical_openai/Code.gs`
 
 ```javascript
 const INPUT_SHEET = 'Form Responses 1';
@@ -1454,16 +1785,32 @@ function ensureHttpOk_(response) {
   }
 }
 
-function prepareOutputColumns_() {
+function getInputSheet_() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(INPUT_SHEET);
-  const headers = ['Theme', 'Sentiment', 'Urgency', 'Next Action', 'Owner Suggestion', 'Follow-up Draft', 'Status'];
+  if (!sheet) {
+    throw new Error('Sheet not found: ' + INPUT_SHEET);
+  }
+  return sheet;
+}
+
+function prepareOutputColumns_() {
+  const sheet = getInputSheet_();
+  const headers = [
+    'Theme',
+    'Sentiment',
+    'Urgency',
+    'Next Action',
+    'Owner Suggestion',
+    'Follow-up Draft',
+    'Status'
+  ];
   sheet.getRange(1, 5, 1, headers.length).setValues([headers]);
 }
 
 function rowToObject_(headers, values) {
   const obj = {};
-  headers.forEach((h, i) => {
-    obj[normaliseKey_(h)] = values[i];
+  headers.forEach(function (header, i) {
+    obj[normaliseKey_(header)] = values[i];
   });
   return obj;
 }
@@ -1480,8 +1827,8 @@ function writeAnalysis_(sheet, row, result) {
   sheet.getRange(row, 11).setValue('PROCESSED');
 }
 
-function postSlackAlert_(message) {
-  const webhook = PropertiesService.getScriptProperties().getProperty('SLACK_WEBHOOK_URL');
+function postGoogleChatAlert_(message) {
+  const webhook = PropertiesService.getScriptProperties().getProperty('GOOGLE_CHAT_WEBHOOK_URL');
   if (!webhook) return;
 
   UrlFetchApp.fetch(webhook, {
@@ -1492,39 +1839,61 @@ function postSlackAlert_(message) {
   });
 }
 
-function deleteAllTriggers_() {
-  ScriptApp.getProjectTriggers().forEach(trigger => ScriptApp.deleteTrigger(trigger));
+function emailManager_(subject, body) {
+  const email = PropertiesService.getScriptProperties().getProperty('MANAGER_EMAIL');
+  if (!email) return;
+  MailApp.sendEmail(email, subject, body);
 }
 
-function processFeedbackRow_(sheet, row, analyzerFn) {
+function deleteAllTriggers_() {
+  ScriptApp.getProjectTriggers().forEach(function (trigger) {
+    ScriptApp.deleteTrigger(trigger);
+  });
+}
+
+function processFeedbackRow_(sheet, row, analyserFn) {
+  if (row <= 1) return;
+
   const headers = sheet.getRange(1, 1, 1, 4).getValues()[0];
   const values = sheet.getRange(row, 1, 1, 4).getValues()[0];
   const record = rowToObject_(headers, values);
 
-  const result = analyzerFn(record);
+  const result = analyserFn(record);
   writeAnalysis_(sheet, row, result);
 
   const urgency = String(result.urgency || '').toLowerCase();
   if (urgency === 'high' || urgency === 'critical') {
-    postSlackAlert_(
+    postGoogleChatAlert_(
       'Urgent feedback detected\n' +
       'Customer: ' + (record.customer || 'Unknown') + '\n' +
       'Channel: ' + (record.channel || 'Unknown') + '\n' +
       'Feedback: ' + (record.feedback || '')
     );
+
+    emailManager_(
+      'Urgent feedback detected',
+      'Customer: ' + (record.customer || 'Unknown') + '\n' +
+      'Channel: ' + (record.channel || 'Unknown') + '\n' +
+      'Feedback: ' + (record.feedback || '') + '\n\n' +
+      'Suggested next action: ' + (result.next_action || '')
+    );
   }
 }
 
 function buildWeeklyRecords_() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(INPUT_SHEET);
+  const sheet = getInputSheet_();
   const rows = sheet.getDataRange().getValues();
   const headers = rows[0];
   const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
 
   return rows
     .slice(1)
-    .filter(row => new Date(row[0]).getTime() >= cutoff)
-    .map(row => rowToObject_(headers, row));
+    .filter(function (row) {
+      return new Date(row[0]).getTime() >= cutoff;
+    })
+    .map(function (row) {
+      return rowToObject_(headers, row);
+    });
 }
 
 function writeWeeklyDoc_(title, summary) {
@@ -1537,36 +1906,25 @@ function writeWeeklyDoc_(title, summary) {
 function emailWeeklyDigest_(summary, docUrl) {
   const managerEmail = getProp_('MANAGER_EMAIL');
   const body = summary + '\n\nGoogle Doc: ' + docUrl;
-  GmailApp.sendEmail(managerEmail, 'Weekly Feedback Digest', body);
+  MailApp.sendEmail(managerEmail, 'Weekly Feedback Digest', body);
 }
-```
 
----
-
-# Non-Technical Project — OpenAI / ChatGPT Scripted Solution
-
-## Provider-specific `Code.gs` block for OpenAI
-
-Paste this **after** the shared helpers.
-
-```javascript
 function onFormSubmitOpenAI(e) {
   const sheet = e.range.getSheet();
   const row = e.range.getRow();
 
   try {
-    processFeedbackRow_(sheet, row, analyzeWithOpenAI);
+    processFeedbackRow_(sheet, row, analyseWithOpenAI);
   } catch (err) {
     sheet.getRange(row, 11).setValue('MANUAL_REVIEW');
     Logger.log(err.stack || err);
-    const email = PropertiesService.getScriptProperties().getProperty('MANAGER_EMAIL');
-    if (email) GmailApp.sendEmail(email, 'OpenAI Feedback Hub Error', String(err));
+    emailManager_('OpenAI Feedback Hub Error', String(err));
   }
 }
 
 function testOpenAIOnLastRow() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(INPUT_SHEET);
-  processFeedbackRow_(sheet, sheet.getLastRow(), analyzeWithOpenAI);
+  const sheet = getInputSheet_();
+  processFeedbackRow_(sheet, sheet.getLastRow(), analyseWithOpenAI);
 }
 
 function setupTriggersOpenAI() {
@@ -1585,7 +1943,7 @@ function setupTriggersOpenAI() {
     .create();
 }
 
-function analyzeWithOpenAI(record) {
+function analyseWithOpenAI(record) {
   const apiKey = getProp_('OPENAI_API_KEY');
   const model = PropertiesService.getScriptProperties().getProperty('OPENAI_MODEL') || 'gpt-4o-mini';
 
@@ -1616,6 +1974,7 @@ function analyzeWithOpenAI(record) {
   });
 
   ensureHttpOk_(response);
+
   const data = JSON.parse(response.getContentText());
   return JSON.parse(data.choices[0].message.content);
 }
@@ -1650,6 +2009,7 @@ function summariseWithOpenAI(records) {
   });
 
   ensureHttpOk_(response);
+
   const data = JSON.parse(response.getContentText());
   return data.choices[0].message.content;
 }
@@ -1664,69 +2024,246 @@ function weeklyDigestOpenAI() {
 }
 ```
 
-## Script Properties to set
+---
 
-In Apps Script:
+## How to set up `non_technical_openai/`
+
+### Step 1 — create the Google Form
+
+Create a Google Form with fields:
+
+- Customer
+- Channel
+- Feedback
+
+Link it to a Google Sheet.
+
+### Step 2 — open Apps Script
+
+From the linked sheet:
+
+- go to **Extensions → Apps Script**
+
+### Step 3 — paste code
+
+- replace the default script with the contents of `Code.gs`
+- replace the manifest with `appsscript.json`
+
+### Step 4 — set Script Properties
+
+In **Project Settings → Script Properties**, add:
 
 - `OPENAI_API_KEY`
-- `OPENAI_MODEL` = `gpt-4o-mini` (optional)
+- `OPENAI_MODEL` = `gpt-4o-mini` optional
 - `MANAGER_EMAIL`
-- `SLACK_WEBHOOK_URL` (optional)
+- `GOOGLE_CHAT_WEBHOOK_URL` optional
 
-## How to deploy the OpenAI Apps Script solution
+### Step 5 — run setup
 
-1. Create a Google Form with fields:
-   - Customer
-   - Channel
-   - Feedback
-2. Link it to a Google Sheet
-3. Open **Extensions → Apps Script**
-4. Paste:
-   - the shared helper block
-   - the OpenAI block
-5. In **Project Settings**, add Script Properties
-6. Run `setupTriggersOpenAI()` once
-7. Authorise the script
-8. Submit a test form entry
-9. Check that columns E–K fill automatically
+Run this once:
 
-## How to test it
+```javascript
+setupTriggersOpenAI()
+```
 
-- Submit one positive feedback example
-- Submit one ambiguous example
-- Submit one urgent/negative example
-- Confirm:
-  - theme/sentiment/urgency are populated
-  - status becomes `PROCESSED`
-  - urgent item posts Slack alert if webhook exists
-  - weekly digest can be run manually from the editor
+Authorise the script when prompted.
+
+### Step 6 — test
+
+Submit sample form responses and confirm that:
+
+- columns E to K populate
+- urgent items trigger a manager email
+- Google Chat alert works if configured
+- weekly digest can run manually
+
+### Manual test function
+
+You can also run this in Apps Script after adding a sample row:
+
+```javascript
+testOpenAIOnLastRow()
+```
 
 ---
 
-# Non-Technical Project — Anthropic / Claude Scripted Solution
+# Non-technical project — Claude version
 
-## Provider-specific `Code.gs` block for Claude
+Create this file in `non_technical_claude/`.
 
-Paste this **after** the shared helpers in a separate Apps Script project.
+---
+
+## `non_technical_claude/Code.gs`
 
 ```javascript
+const INPUT_SHEET = 'Form Responses 1';
+
+function getProp_(name) {
+  const value = PropertiesService.getScriptProperties().getProperty(name);
+  if (!value) throw new Error('Missing Script Property: ' + name);
+  return value;
+}
+
+function normaliseKey_(text) {
+  return String(text).trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
+}
+
+function extractJson_(text) {
+  const start = text.indexOf('{');
+  const end = text.lastIndexOf('}');
+  if (start === -1 || end === -1) {
+    throw new Error('No JSON found in model output: ' + text);
+  }
+  return JSON.parse(text.substring(start, end + 1));
+}
+
+function ensureHttpOk_(response) {
+  const code = response.getResponseCode();
+  if (code >= 300) {
+    throw new Error('HTTP ' + code + ': ' + response.getContentText());
+  }
+}
+
+function getInputSheet_() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(INPUT_SHEET);
+  if (!sheet) {
+    throw new Error('Sheet not found: ' + INPUT_SHEET);
+  }
+  return sheet;
+}
+
+function prepareOutputColumns_() {
+  const sheet = getInputSheet_();
+  const headers = [
+    'Theme',
+    'Sentiment',
+    'Urgency',
+    'Next Action',
+    'Owner Suggestion',
+    'Follow-up Draft',
+    'Status'
+  ];
+  sheet.getRange(1, 5, 1, headers.length).setValues([headers]);
+}
+
+function rowToObject_(headers, values) {
+  const obj = {};
+  headers.forEach(function (header, i) {
+    obj[normaliseKey_(header)] = values[i];
+  });
+  return obj;
+}
+
+function writeAnalysis_(sheet, row, result) {
+  sheet.getRange(row, 5, 1, 6).setValues([[
+    result.theme || '',
+    result.sentiment || '',
+    result.urgency || '',
+    result.next_action || '',
+    result.owner_suggestion || '',
+    result.follow_up_email || ''
+  ]]);
+  sheet.getRange(row, 11).setValue('PROCESSED');
+}
+
+function postGoogleChatAlert_(message) {
+  const webhook = PropertiesService.getScriptProperties().getProperty('GOOGLE_CHAT_WEBHOOK_URL');
+  if (!webhook) return;
+
+  UrlFetchApp.fetch(webhook, {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify({ text: message }),
+    muteHttpExceptions: true
+  });
+}
+
+function emailManager_(subject, body) {
+  const email = PropertiesService.getScriptProperties().getProperty('MANAGER_EMAIL');
+  if (!email) return;
+  MailApp.sendEmail(email, subject, body);
+}
+
+function deleteAllTriggers_() {
+  ScriptApp.getProjectTriggers().forEach(function (trigger) {
+    ScriptApp.deleteTrigger(trigger);
+  });
+}
+
+function processFeedbackRow_(sheet, row, analyserFn) {
+  if (row <= 1) return;
+
+  const headers = sheet.getRange(1, 1, 1, 4).getValues()[0];
+  const values = sheet.getRange(row, 1, 1, 4).getValues()[0];
+  const record = rowToObject_(headers, values);
+
+  const result = analyserFn(record);
+  writeAnalysis_(sheet, row, result);
+
+  const urgency = String(result.urgency || '').toLowerCase();
+  if (urgency === 'high' || urgency === 'critical') {
+    postGoogleChatAlert_(
+      'Urgent feedback detected\n' +
+      'Customer: ' + (record.customer || 'Unknown') + '\n' +
+      'Channel: ' + (record.channel || 'Unknown') + '\n' +
+      'Feedback: ' + (record.feedback || '')
+    );
+
+    emailManager_(
+      'Urgent feedback detected',
+      'Customer: ' + (record.customer || 'Unknown') + '\n' +
+      'Channel: ' + (record.channel || 'Unknown') + '\n' +
+      'Feedback: ' + (record.feedback || '') + '\n\n' +
+      'Suggested next action: ' + (result.next_action || '')
+    );
+  }
+}
+
+function buildWeeklyRecords_() {
+  const sheet = getInputSheet_();
+  const rows = sheet.getDataRange().getValues();
+  const headers = rows[0];
+  const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+
+  return rows
+    .slice(1)
+    .filter(function (row) {
+      return new Date(row[0]).getTime() >= cutoff;
+    })
+    .map(function (row) {
+      return rowToObject_(headers, row);
+    });
+}
+
+function writeWeeklyDoc_(title, summary) {
+  const doc = DocumentApp.create(title);
+  doc.getBody().appendParagraph(summary);
+  doc.saveAndClose();
+  return doc.getUrl();
+}
+
+function emailWeeklyDigest_(summary, docUrl) {
+  const managerEmail = getProp_('MANAGER_EMAIL');
+  const body = summary + '\n\nGoogle Doc: ' + docUrl;
+  MailApp.sendEmail(managerEmail, 'Weekly Feedback Digest', body);
+}
+
 function onFormSubmitClaude(e) {
   const sheet = e.range.getSheet();
   const row = e.range.getRow();
 
   try {
-    processFeedbackRow_(sheet, row, analyzeWithClaude);
+    processFeedbackRow_(sheet, row, analyseWithClaude);
   } catch (err) {
     sheet.getRange(row, 11).setValue('MANUAL_REVIEW');
     Logger.log(err.stack || err);
-    const email = PropertiesService.getScriptProperties().getProperty('MANAGER_EMAIL');
-    if (email) GmailApp.sendEmail(email, 'Claude Feedback Hub Error', String(err));
+    emailManager_('Claude Feedback Hub Error', String(err));
   }
 }
 
 function testClaudeOnLastRow() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(INPUT_SHEET);
-  processFeedbackRow_(sheet, sheet.getLastRow(), analyzeWithClaude);
+  const sheet = getInputSheet_();
+  processFeedbackRow_(sheet, sheet.getLastRow(), analyseWithClaude);
 }
 
 function setupTriggersClaude() {
@@ -1745,7 +2282,7 @@ function setupTriggersClaude() {
     .create();
 }
 
-function analyzeWithClaude(record) {
+function analyseWithClaude(record) {
   const apiKey = getProp_('ANTHROPIC_API_KEY');
   const model = PropertiesService.getScriptProperties().getProperty('ANTHROPIC_MODEL') || 'claude-3-5-sonnet-20240620';
 
@@ -1774,8 +2311,12 @@ function analyzeWithClaude(record) {
   });
 
   ensureHttpOk_(response);
+
   const data = JSON.parse(response.getContentText());
-  const text = data.content.map(block => block.text || '').join('');
+  const text = data.content.map(function (block) {
+    return block.text || '';
+  }).join('');
+
   return extractJson_(text);
 }
 
@@ -1808,8 +2349,11 @@ function summariseWithClaude(records) {
   });
 
   ensureHttpOk_(response);
+
   const data = JSON.parse(response.getContentText());
-  return data.content.map(block => block.text || '').join('');
+  return data.content.map(function (block) {
+    return block.text || '';
+  }).join('');
 }
 
 function weeklyDigestClaude() {
@@ -1822,41 +2366,77 @@ function weeklyDigestClaude() {
 }
 ```
 
-## Script Properties to set
-
-- `ANTHROPIC_API_KEY`
-- `ANTHROPIC_MODEL` = `claude-3-5-sonnet-20240620` (optional)
-- `MANAGER_EMAIL`
-- `SLACK_WEBHOOK_URL` (optional)
-
-## How to deploy the Claude Apps Script solution
-
-Same process as the OpenAI Apps Script version, but:
-
-- paste the Claude block instead of the OpenAI block
-- run `setupTriggersClaude()`
-
 ---
 
-## Minimal `appsscript.json`
+## How to set up `non_technical_claude/`
 
-If you want to version-control the Apps Script project with `clasp`, include this manifest:
+### Step 1 — create the Google Form
 
-```json
-{
-  "timeZone": "Etc/UTC",
-  "exceptionLogging": "STACKDRIVER",
-  "runtimeVersion": "V8"
-}
+Create a Google Form with fields:
+
+- Customer
+- Channel
+- Feedback
+
+Link it to a Google Sheet.
+
+### Step 2 — open Apps Script
+
+From the linked sheet:
+
+- go to **Extensions → Apps Script**
+
+### Step 3 — paste code
+
+- replace the default script with the contents of `Code.gs`
+- replace the manifest with `appsscript.json`
+
+### Step 4 — set Script Properties
+
+In **Project Settings → Script Properties**, add:
+
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL` = `claude-3-5-sonnet-20240620` optional
+- `MANAGER_EMAIL`
+- `GOOGLE_CHAT_WEBHOOK_URL` optional
+
+### Step 5 — run setup
+
+Run this once:
+
+```javascript
+setupTriggersClaude()
+```
+
+Authorise the script when prompted.
+
+### Step 6 — test
+
+Submit sample form responses and confirm that:
+
+- columns E to K populate
+- urgent items trigger a manager email
+- Google Chat alert works if configured
+- weekly digest can run manually
+
+### Manual test function
+
+You can also run this in Apps Script after adding a sample row:
+
+```javascript
+testClaudeOnLastRow()
 ```
 
 ---
 
-## Optional CI/CD for the non-technical scripted solution with `clasp`
+# Optional GitHub deployment for Apps Script with `clasp`
 
-This is the business-ready version-control path.
+This applies to both:
 
-### Local setup
+- `non_technical_openai/`
+- `non_technical_claude/`
+
+## Local setup
 
 ```bash
 npm install -g @google/clasp
@@ -1864,224 +2444,31 @@ clasp login
 clasp clone YOUR_SCRIPT_ID
 ```
 
-Then copy your `Code.gs` and `appsscript.json` into a GitHub repo.
+Then copy:
 
-### `.github/workflows/deploy-apps-script.yml`
+- `Code.gs`
+- `appsscript.json`
 
-```yaml
-name: deploy-apps-script
+from the appropriate folder into the cloned Apps Script project directory.
 
-on:
-  push:
-    branches: [main]
+## Push manually
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - run: npm install -g @google/clasp
-
-      - name: Restore clasp credentials
-        run: printf '%s' '${{ secrets.CLASPRC_JSON }}' > ~/.clasprc.json
-
-      - name: Restore clasp project config
-        run: printf '%s' '${{ secrets.CLASP_JSON }}' > .clasp.json
-
-      - run: clasp push --force
+```bash
+clasp push
 ```
 
-GitHub Secrets to create:
+## GitHub Secrets for automated deployment
+
+If you want the GitHub Actions deploy workflow to work, add:
 
 - `CLASPRC_JSON`
 - `CLASP_JSON`
 
-This is optional but very useful for demonstrating real change management.
-
 ---
 
-# Non-Technical Project — OpenAI Tooling-Based Solution  
-# Zapier + Google Sheets + Gmail/Slack
+# Non-technical project evaluation
 
-This version is for learning modern no-code business automation.
-
-## Workflow
-
-1. **Trigger**: New spreadsheet row in Google Sheets
-2. **Action**: Webhooks by Zapier → call OpenAI API
-3. **Action**: Parse JSON
-4. **Action**: Update row with theme/sentiment/urgency
-5. **Action**: If urgency is high/critical, send Slack alert
-6. **Action**: Create Gmail draft
-7. **Scheduled weekly Zap**: summarise last week into email/doc
-
-## Zapier HTTP request to OpenAI
-
-### Method
-`POST`
-
-### URL
-`https://api.openai.com/v1/chat/completions`
-
-### Headers
-- `Authorization: Bearer YOUR_OPENAI_API_KEY`
-- `Content-Type: application/json`
-
-### Body
-
-```json
-{
-  "model": "gpt-4o-mini",
-  "temperature": 0.2,
-  "response_format": { "type": "json_object" },
-  "messages": [
-    {
-      "role": "system",
-      "content": "You are a customer operations analyst. Return JSON with keys: theme, sentiment, urgency, next_action, owner_suggestion, follow_up_email. sentiment must be positive, neutral, or negative. urgency must be low, medium, high, or critical."
-    },
-    {
-      "role": "user",
-      "content": "Customer: {{Customer}}\nChannel: {{Channel}}\nFeedback: {{Feedback}}"
-    }
-  ]
-}
-```
-
-## Tooling-based SDLC notes for the OpenAI no-code version
-
-- **Requirements & Planning**: write a one-page workflow charter in ChatGPT
-- **Design & Architecture**: create a Zap design doc with trigger/action/error path
-- **Implementation**: build Zap in staging first
-- **Testing & QA**: use 5 sample rows before turning on production
-- **Code Review equivalent**: have a peer review the prompt, filters, and email destination
-- **CI/CD equivalent**: duplicate a staging Zap to production
-- **Deployment**: turn on the production Zap
-- **Monitoring & Logging**: Zapier task history + Slack alerts on failure
-- **Documentation & Runbook**: one-page SOP in Google Doc or Notion
-- **Evaluation**: weekly review of accuracy and time saved
-
----
-
-# Non-Technical Project — Anthropic Tooling-Based Solution  
-# Make + Google Sheets + Gmail/Slack
-
-This gives you a second independent automation stack.
-
-## Workflow
-
-1. **Trigger**: Watch new rows in Google Sheets
-2. **Action**: HTTP module → call Claude API
-3. **Action**: Parse JSON
-4. **Action**: Update row with theme/sentiment/urgency
-5. **Router**: urgent items to Slack
-6. **Action**: create Gmail draft
-7. **Scheduled scenario**: aggregate weekly rows and summarise via Claude
-
-## Make HTTP request to Claude
-
-### Method
-`POST`
-
-### URL
-`https://api.anthropic.com/v1/messages`
-
-### Headers
-- `x-api-key: YOUR_ANTHROPIC_API_KEY`
-- `anthropic-version: 2023-06-01`
-- `Content-Type: application/json`
-
-### Body
-
-```json
-{
-  "model": "claude-3-5-sonnet-20240620",
-  "max_tokens": 800,
-  "temperature": 0.2,
-  "system": "You are a customer operations analyst. Return JSON only with keys: theme, sentiment, urgency, next_action, owner_suggestion, follow_up_email. sentiment must be positive, neutral, or negative. urgency must be low, medium, high, or critical.",
-  "messages": [
-    {
-      "role": "user",
-      "content": "Customer: {{Customer}}\nChannel: {{Channel}}\nFeedback: {{Feedback}}"
-    }
-  ]
-}
-```
-
-## Weekly summary request body for Claude
-
-```json
-{
-  "model": "claude-3-5-sonnet-20240620",
-  "max_tokens": 1200,
-  "temperature": 0.2,
-  "system": "You are a business operations analyst. Write a concise weekly digest with sections: Top Themes, Urgent Items, Recommended Actions, Risks, and 3 representative quotes. Keep it under 400 words.",
-  "messages": [
-    {
-      "role": "user",
-      "content": "{{Aggregated Rows JSON}}"
-    }
-  ]
-}
-```
-
-## Tooling-based SDLC notes for the Claude no-code version
-
-- **Requirements & Planning**: use Claude to draft the workflow spec and exception rules
-- **Design & Architecture**: draw scenario steps and routers
-- **Implementation**: create a staging Make scenario
-- **Testing & QA**: replay test records and review outputs
-- **Code Review equivalent**: peer-review prompts, mappings, and branch rules
-- **CI/CD equivalent**: copy scenario from staging to prod after signoff
-- **Deployment**: enable scenario scheduling
-- **Monitoring & Logging**: Make execution history and alerts
-- **Documentation & Runbook**: maintain a scenario SOP with screenshots
-- **Evaluation**: monthly sampling of records and manager satisfaction
-
----
-
-## Non-technical project SDLC map
-
-This SDLC map applies to both scripted and tooling-based non-technical versions.
-
-| SDLC Step | Scripted/manual approach | Tooling-based approach |
-|---|---|---|
-| Requirements & Planning | workflow charter prompt + sheet design | Zapier/Make workflow spec |
-| Design & Architecture | form fields, sheet schema, trigger design | scenario map / action chain |
-| Implementation | Apps Script code | Zapier or Make scenario |
-| Testing & QA | `testOpenAIOnLastRow()` / `testClaudeOnLastRow()` + sample submissions | test mode, sample rows, staging automation |
-| Code Review | review Apps Script in GitHub or with peer checklist | workflow review checklist and prompt audit |
-| CI/CD Pipeline | `clasp` + GitHub Actions optional | staging-to-production flow publish process |
-| Deployment | run `setupTriggersOpenAI()` or `setupTriggersClaude()` | turn on Zap/Scenario |
-| Monitoring & Logging | Apps Script executions, Status column, Slack/email alerts | task/execution history |
-| Documentation & Runbook | SOP in Google Doc/Notion | shared workflow documentation |
-| Evaluation | evaluation sheet and formulas | recurring KPI review |
-
----
-
-# Evaluation templates for both projects
-
-## Technical project evaluation metrics
-
-Track these after each change:
-
-- severity accuracy
-- component accuracy
-- schema-valid response rate
-- average latency
-- PR review usefulness
-- number of production parsing failures
-- release note acceptance rate by humans
-
-You already have `scripts/evaluate.py` for this.
-
-## Non-technical project evaluation metrics
-
-Create a second sheet called `Evaluation` with columns:
+Create a second Google Sheet tab called `Evaluation` with columns:
 
 - A: Record ID
 - B: Human Theme
@@ -2095,88 +2482,35 @@ Create a second sheet called `Evaluation` with columns:
 
 Useful formulas:
 
-### Theme accuracy
+## Theme accuracy
+
 ```excel
 =COUNTIF(D2:D, TRUE) / MAX(1, COUNTIF(B2:B, "<>"))
 ```
 
-### Urgency accuracy
+## Urgency accuracy
+
 ```excel
 =COUNTIF(G2:G, TRUE) / MAX(1, COUNTIF(E2:E, "<>"))
 ```
 
-### Draft approval rate
+## Draft approval rate
+
 ```excel
 =COUNTIF(H2:H, TRUE) / MAX(1, COUNTA(H2:H))
 ```
 
-### Average time saved
+## Average time saved
+
 ```excel
 =AVERAGE(I2:I)
 ```
 
 ---
 
-# How these two projects prepare you for modern business workflows
+# Provider comparison scorecard
 
-## Project 1 teaches engineering workflow maturity
-
-You’ll practice:
-
-- translating vague stakeholder requests into a PRD
-- producing an architecture doc
-- building an API with clear contracts
-- testing and evaluating AI output
-- using AI in code review without over-trusting it
-- deploying through CI/CD
-- monitoring, rollback, and runbooks
-
-This is directly useful for:
-
-- software engineering
-- platform engineering
-- QA automation
-- solutions architecture
-- AI application engineering
-
-## Project 2 teaches operational workflow maturity
-
-You’ll practice:
-
-- designing intake workflows
-- working with structured business data
-- introducing approval steps
-- automating alerts and summaries
-- managing spreadsheet- and form-based operations
-- documenting SOPs
-- measuring accuracy and business impact
-
-This is directly useful for:
-
-- operations
-- product ops
-- customer success ops
-- project/program management
-- RevOps / business systems
-
----
-
-# Recommended build order
-
-If you want the fastest path:
-
-1. **Build the non-technical OpenAI Apps Script version first**  
-   It’s the fastest win and easiest to demo.
-
-2. **Build the technical OpenAI API version second**  
-   This adds engineering credibility.
-
-3. **Clone both for Claude**  
-   Now you can compare vendors independently.
-
----
-
-# Simple comparison scorecard to use after you build all four solutions
+Use this after you build more than one implementation.
 
 | Metric | Technical OpenAI | Technical Claude | Non-technical OpenAI | Non-technical Claude |
 |---|---:|---:|---:|---:|
@@ -2188,349 +2522,77 @@ If you want the fastest path:
 | Human edit rate |  |  |  |  |
 | Best use cases |  |  |  |  |
 
-That scorecard is very useful in interviews and portfolio writeups because it shows you can evaluate tools pragmatically, not just use them.
+This is useful in interviews because it shows that you can evaluate tools pragmatically rather than simply use them.
 
 ---
 
-# If you want portfolio bullets later
+# GitHub secrets and local configuration
 
-You can turn these into resume bullets like:
+## `technical_openai/`
 
-- **Built and deployed an AI-assisted incident triage API** using FastAPI, GitHub Actions, Docker, and Render, with structured output validation, AI PR review, evaluation datasets, and monitoring.
-- **Built a Google Workspace-based AI feedback operations hub** using Apps Script, Slack alerts, weekly digests, and no-code automations, with approval gates, runbooks, and KPI tracking.
-- **Benchmarked OpenAI and Claude implementations independently** across accuracy, latency, reliability, and workflow fit.
+### Local `.env`
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL`
+- `LOG_LEVEL`
+
+### GitHub Secrets
+- `OPENAI_API_KEY`
 
 ---
 
-If you want, I can turn this into a **copy-paste-ready repo skeleton** next, with each file shown in full directory order so you can build it exactly as-is.
+## `technical_claude/`
+
+### Local `.env`
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL`
+- `LOG_LEVEL`
+
+### GitHub Secrets
+- `ANTHROPIC_API_KEY`
 
 ---
 
-# Project Diagrams
+## `non_technical_openai/`
 
-## Technical
+### Apps Script Script Properties
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL`
+- `MANAGER_EMAIL`
+- `GOOGLE_CHAT_WEBHOOK_URL` optional
 
-### Automation / Manual Guide
+### Optional GitHub Secrets for `clasp`
+- `CLASPRC_JSON`
+- `CLASP_JSON`
 
-| Step                    | Save manually? |
-| ----------------------- | -------------- |
-| Writing notes           | Yes            |
-| Generating requirements | Yes            |
-| Generating architecture | Yes            |
-| Editing code            | Yes            |
-| Running API             | No             |
-| Running tests           | No             |
-| Running evaluation      | Optional       |
-| CI/CD pipelines         | No             |
+---
 
-### Process Flowchart
+## `non_technical_claude/`
 
-```mermaid
-flowchart TD
+### Apps Script Script Properties
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL`
+- `MANAGER_EMAIL`
+- `GOOGLE_CHAT_WEBHOOK_URL` optional
 
-A[1 Write stakeholder notes<br>docs/stakeholder_notes.md]
+### Optional GitHub Secrets for `clasp`
+- `CLASPRC_JSON`
+- `CLASP_JSON`
 
-B[2 Generate planning docs<br>generate_requirements.py<br>generate_architecture.py]
+---
 
-C[3 Implement API<br>edit app/main.py<br>provider.py<br>prompt.py]
+# How to run everything
 
-D[4 Run tests<br>pytest]
+## Fastest path
 
-E[5 Run service<br>uvicorn app.main:app]
+### 1. Build `non_technical_openai/`
+- quickest end-to-end workflow
+- easiest to demo to non-technical audiences
 
-F[6 Evaluate model output<br>scripts/evaluate.py]
+### 2. Build `technical_openai/`
+- adds engineering depth and API delivery skills
 
-G[7 Commit and deploy<br>git add / commit / push]
+### 3. Build `non_technical_claude/`
+- compare provider behaviour in a workflow automation context
 
-A --> B --> C --> D --> E --> F --> G
-```
-
-### OpenAI Interaction Diagram
-
-```mermaid
-sequenceDiagram
-autonumber
-actor Support as Support / QA
-actor Engineer as Engineer
-participant Repo as GitHub Repo
-participant AI as OpenAI API
-participant CI as GitHub Actions
-participant Deploy as Render
-participant Mon as UptimeRobot
-
-rect rgb(245,245,245)
-  Note over Support,Engineer: Requirements & Planning
-  Support->>Engineer: Share bug examples, logs, and business impact
-  Engineer->>Repo: Create stakeholder notes and backlog items
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,Repo: Design & Architecture
-  Engineer->>AI: Generate PRD and architecture doc prompts
-  AI-->>Engineer: PRD + architecture draft
-  Engineer->>Repo: Commit docs and acceptance criteria
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,Repo: Implementation
-  Engineer->>Repo: Build FastAPI /triage and /health
-  Engineer->>Repo: Add schemas, prompts, provider wrapper, and scripts
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,CI: Testing & QA
-  Engineer->>CI: Run pytest, lint, and evaluation dataset checks
-  CI-->>Engineer: Pass/fail results and test artifacts
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,CI: Code Review
-  CI->>AI: Send git diff for AI-assisted review
-  AI-->>CI: Blocking issues, suggestions, missing tests
-  CI-->>Engineer: Post review comment on PR
-end
-
-rect rgb(245,245,245)
-  Note over CI,Deploy: CI/CD Pipeline
-  CI->>CI: Build Docker image and run checks
-  CI->>Deploy: Trigger Render deploy on merge to main
-end
-
-rect rgb(245,245,245)
-  Note over Mon,Deploy: Deployment & Monitoring
-  Mon->>Deploy: Ping /health
-  Deploy-->>Mon: 200 OK or failure
-  Deploy-->>Engineer: Logs, alerts, and runtime errors
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,Repo: Documentation & Runbook
-  Engineer->>Repo: Update README, runbook, and release notes
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,AI: Evaluation
-  Engineer->>AI: Run evaluation cases and compare outputs
-  AI-->>Engineer: Severity, component, latency, and confidence results
-  Engineer->>Repo: Record findings and tuning decisions
-end
-```
-
-### Claude Interaction Diagram
-
-```mermaid
-sequenceDiagram
-autonumber
-actor Support as Support / QA
-actor Engineer as Engineer
-participant Repo as GitHub Repo
-participant AI as Anthropic API
-participant CI as GitHub Actions
-participant Deploy as Render
-participant Mon as UptimeRobot
-
-rect rgb(245,245,245)
-  Note over Support,Engineer: Requirements & Planning
-  Support->>Engineer: Share bug examples, logs, and business impact
-  Engineer->>Repo: Create stakeholder notes and backlog items
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,Repo: Design & Architecture
-  Engineer->>AI: Generate PRD and architecture doc prompts
-  AI-->>Engineer: PRD + architecture draft
-  Engineer->>Repo: Commit docs and acceptance criteria
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,Repo: Implementation
-  Engineer->>Repo: Build FastAPI /triage and /health
-  Engineer->>Repo: Add schemas, prompts, provider wrapper, and scripts
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,CI: Testing & QA
-  Engineer->>CI: Run pytest, lint, and evaluation dataset checks
-  CI-->>Engineer: Pass/fail results and test artifacts
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,CI: Code Review
-  CI->>AI: Send git diff for AI-assisted review
-  AI-->>CI: Blocking issues, suggestions, missing tests
-  CI-->>Engineer: Post review comment on PR
-end
-
-rect rgb(245,245,245)
-  Note over CI,Deploy: CI/CD Pipeline
-  CI->>CI: Build Docker image and run checks
-  CI->>Deploy: Trigger Render deploy on merge to main
-end
-
-rect rgb(245,245,245)
-  Note over Mon,Deploy: Deployment & Monitoring
-  Mon->>Deploy: Ping /health
-  Deploy-->>Mon: 200 OK or failure
-  Deploy-->>Engineer: Logs, alerts, and runtime errors
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,Repo: Documentation & Runbook
-  Engineer->>Repo: Update README, runbook, and release notes
-end
-
-rect rgb(245,245,245)
-  Note over Engineer,AI: Evaluation
-  Engineer->>AI: Run evaluation cases and compare outputs
-  AI-->>Engineer: Severity, component, latency, and confidence results
-  Engineer->>Repo: Record findings and tuning decisions
-end
-```
-
-## Non-technical 
-
-### OpenAI Interaction Diagram
-
-```mermaid
-sequenceDiagram
-autonumber
-actor User as Customer / Employee
-participant Form as Google Form
-participant Sheet as Google Sheet
-participant Auto as Apps Script / Zapier
-participant AI as OpenAI API
-participant Slack as Slack
-participant Gmail as Gmail
-participant Manager as Manager
-
-rect rgb(245,245,245)
-  Note over User,Manager: Requirements & Planning
-  User->>Manager: Submit feedback, survey response, or request
-  Manager->>Auto: Define workflow charter and approval rules
-  Manager->>Sheet: Confirm input fields and output columns
-end
-
-rect rgb(245,245,245)
-  Note over User,Sheet: Design & Architecture
-  User->>Form: Fill out Google Form
-  Form->>Sheet: Append new row
-  Manager->>Sheet: Review sheet schema and status flow
-end
-
-rect rgb(245,245,245)
-  Note over Sheet,Auto: Implementation
-  Auto->>Sheet: Read new row
-  Auto->>AI: Send feedback for classification and drafting
-  AI-->>Auto: Theme, sentiment, urgency, next action, owner, draft
-  Auto->>Sheet: Write analysis columns and status
-end
-
-rect rgb(245,245,245)
-  Note over Auto,Slack: Testing & QA
-  Manager->>Auto: Run sample submissions and verify outputs
-  Auto-->>Manager: Updated rows and test results
-  Auto->>Slack: Send urgent alert for high / critical items
-end
-
-rect rgb(245,245,245)
-  Note over Manager,Auto: Code Review
-  Manager->>Auto: Review prompt, filters, and routing logic
-  Auto-->>Manager: Approved or revised workflow
-end
-
-rect rgb(245,245,245)
-  Note over Auto,Gmail: CI/CD Pipeline
-  Manager->>Auto: Promote staging workflow to production
-  Auto->>Gmail: Create draft or send weekly digest
-end
-
-rect rgb(245,245,245)
-  Note over Slack,Manager: Deployment & Monitoring
-  Slack-->>Manager: Execution failures or urgent item alerts
-  Auto-->>Manager: Task history and row status updates
-end
-
-rect rgb(245,245,245)
-  Note over Manager,Auto: Documentation & Runbook
-  Manager->>Auto: Update SOP, escalation steps, and approval paths
-end
-
-rect rgb(245,245,245)
-  Note over Manager,AI: Evaluation
-  Manager->>AI: Compare AI tags to human labels and measure time saved
-  AI-->>Manager: Weekly digest quality and accuracy analysis
-end
-```
-
-### Claude Interaction Diagram
-
-```mermaid
-sequenceDiagram
-autonumber
-actor User as Customer / Employee
-participant Form as Google Form
-participant Sheet as Google Sheet
-participant Auto as Apps Script / Make
-participant AI as Anthropic API
-participant Slack as Slack
-participant Gmail as Gmail
-participant Manager as Manager
-
-rect rgb(245,245,245)
-  Note over User,Manager: Requirements & Planning
-  User->>Manager: Submit feedback, survey response, or request
-  Manager->>Auto: Define workflow charter and approval rules
-  Manager->>Sheet: Confirm input fields and output columns
-end
-
-rect rgb(245,245,245)
-  Note over User,Sheet: Design & Architecture
-  User->>Form: Fill out Google Form
-  Form->>Sheet: Append new row
-  Manager->>Sheet: Review sheet schema and status flow
-end
-
-rect rgb(245,245,245)
-  Note over Sheet,Auto: Implementation
-  Auto->>Sheet: Read new row
-  Auto->>AI: Send feedback for classification and drafting
-  AI-->>Auto: Theme, sentiment, urgency, next action, owner, draft
-  Auto->>Sheet: Write analysis columns and status
-end
-
-rect rgb(245,245,245)
-  Note over Auto,Slack: Testing & QA
-  Manager->>Auto: Run sample submissions and verify outputs
-  Auto-->>Manager: Updated rows and test results
-  Auto->>Slack: Send urgent alert for high / critical items
-end
-
-rect rgb(245,245,245)
-  Note over Manager,Auto: Code Review
-  Manager->>Auto: Review prompt, filters, and routing logic
-  Auto-->>Manager: Approved or revised workflow
-end
-
-rect rgb(245,245,245)
-  Note over Auto,Gmail: CI/CD Pipeline
-  Manager->>Auto: Promote staging workflow to production
-  Auto->>Gmail: Create draft or send weekly digest
-end
-
-rect rgb(245,245,245)
-  Note over Slack,Manager: Deployment & Monitoring
-  Slack-->>Manager: Execution failures or urgent item alerts
-  Auto-->>Manager: Task history and row status updates
-end
-
-rect rgb(245,245,245)
-  Note over Manager,Auto: Documentation & Runbook
-  Manager->>Auto: Update SOP, escalation steps, and approval paths
-end
-
-rect rgb(245,245,245)
-  Note over Manager,AI: Evaluation
-  Manager->>AI: Compare AI tags to human labels and measure time saved
-  AI-->>Manager: Weekly digest quality and accuracy analysis
-end
-```
+### 4. Build `technical_claude/`
+- compare provider behaviour in a backend engineering context

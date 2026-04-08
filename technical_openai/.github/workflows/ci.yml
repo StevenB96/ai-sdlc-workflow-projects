@@ -8,6 +8,7 @@ on:
 jobs:
   test-build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -15,7 +16,21 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install -r requirements.txt
-      - run: ruff check .
-      - run: pytest -q
-      - run: docker build -t ai-incident-triage .
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Build Docker image
+        run: docker build -t ai-incident-triage .
+
+      - name: Smoke test container
+        run: |
+          docker run -d --name triage-smoke -p 8000:8000 ai-incident-triage
+          sleep 5
+          curl --fail http://localhost:8000/health
+          docker stop triage-smoke

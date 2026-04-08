@@ -1,13 +1,23 @@
 import os
 import sys
+
+from dotenv import load_dotenv
 from openai import OpenAI
 
+load_dotenv()
+
 if len(sys.argv) != 2:
-    raise SystemExit("usage: python scripts/generate_requirements.py <stakeholder_notes.md>")
+    raise SystemExit(
+        "usage: python scripts/generate_requirements.py <stakeholder_notes.md>")
 
 notes = open(sys.argv[1], "r", encoding="utf-8").read()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is not set")
+
 model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+client = OpenAI(api_key=api_key)
 
 prompt = f"""
 Convert these stakeholder notes into a concise PRD in Markdown.
@@ -28,7 +38,7 @@ Stakeholder notes:
 {notes}
 """
 
-resp = client.chat.completions.create(
+response = client.chat.completions.create(
     model=model,
     temperature=0.2,
     messages=[
@@ -37,4 +47,4 @@ resp = client.chat.completions.create(
     ],
 )
 
-print(resp.choices[0].message.content)
+print(response.choices[0].message.content)

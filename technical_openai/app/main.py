@@ -1,15 +1,31 @@
 import logging
 import os
+
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
-from .schemas import TriageRequest, TriageResponse
+
 from .provider import triage_issue
+from .schemas import TriageRequest, TriageResponse
+
+load_dotenv()
 
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "INFO"),
-    format='{"time":"%(asctime)s","level":"%(levelname)s","message":"%(message)s"}'
+    format='{"time":"%(asctime)s","level":"%(levelname)s","message":"%(message)s"}',
 )
 
-app = FastAPI(title="AI Incident Triage API")
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="AI Incident Triage API", version="0.1.0")
+
+
+@app.get("/")
+def root():
+    return {
+        "message": "AI Incident Triage API",
+        "docs": "/docs",
+        "health": "/health",
+    }
 
 
 @app.get("/health")
@@ -22,7 +38,8 @@ def triage(req: TriageRequest):
     try:
         result = triage_issue(req)
         validated = TriageResponse(**result)
-        logging.info(
+
+        logger.info(
             'triage_success title="%s" severity="%s" component="%s"',
             req.title,
             validated.severity,
@@ -30,5 +47,6 @@ def triage(req: TriageRequest):
         )
         return validated
     except Exception as err:
-        logging.exception("triage_failed")
-        raise HTTPException(status_code=500, detail=f"triage failed: {err}")
+        logger.exception("triage_failed")
+        raise HTTPException(
+            status_code=500, detail=f"triage failed: {err}") from err
