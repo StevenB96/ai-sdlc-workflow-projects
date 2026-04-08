@@ -7,22 +7,22 @@ on:
     paths:
       - "technical_openai/**"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   review:
     runs-on: ubuntu-latest
-
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     defaults:
       run:
         working-directory: technical_openai
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -32,9 +32,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Get PR diff
+      - name: Generate PR diff
         run: |
           git fetch origin master
+
           if git merge-base --is-ancestor origin/master HEAD; then
             git diff origin/master...HEAD > diff.txt
           else
@@ -42,6 +43,7 @@ jobs:
           fi
 
       - name: AI Code Review
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
