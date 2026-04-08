@@ -7,22 +7,31 @@ on:
     paths:
       - "technical_openai/**"
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # Ensure Node.js 24 for JS actions
-
 jobs:
   review:
     runs-on: ubuntu-latest
 
+    env:
+      # Opt-in Node.js 24 for GitHub Actions if needed
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
+      # Checkout the PR branch
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Get the diff between PR and master safely
       - name: Get PR diff
         run: |
           git fetch origin master
-          git diff origin/master...HEAD > diff.txt
+          # Use three-dot diff if merge base exists; otherwise fallback to two-dot
+          if git merge-base --is-ancestor origin/master HEAD; then
+            git diff origin/master...HEAD > diff.txt
+          else
+            git diff origin/master HEAD > diff.txt
+          fi
 
+      # Run AI-powered code review on the diff
       - name: AI Code Review
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
