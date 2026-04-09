@@ -93,15 +93,14 @@ H --> I[writeAnalysis_]
 I --> J[Write Theme, Sentiment, Urgency, Actions]
 J --> K[Mark Row as PROCESSED]
 
-H --> L{Urgency High/Critical?}
+H --> L{Urgency High or Critical?}
 
 L -- Yes --> M[Send Google Chat Alert]
 L -- Yes --> N[Send Email to Manager]
-
-L -- No --> O[End]
+L -- No --> O[End Process]
 
 %% Weekly Flow
-P[Weekly Trigger (Monday 8am)] --> Q[weeklyDigestOpenAI]
+P[Weekly Trigger Monday 8am] --> Q[weeklyDigestOpenAI]
 
 Q --> R[buildWeeklyRecords_]
 R --> S[Filter Last 7 Days Data]
@@ -115,7 +114,7 @@ V --> W[writeWeeklyDoc_]
 W --> X[Create Google Doc]
 
 X --> Y[emailWeeklyDigest_]
-Y --> Z[Send Email with Summary + Doc Link]
+Y --> Z[Send Email with Summary and Doc Link]
 ```
 
 ### 2) `technical_claude/`
