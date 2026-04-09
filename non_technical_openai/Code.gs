@@ -1,4 +1,4 @@
-const INPUT_SHEET = 'Form Responses 1';
+const INPUT_SHEET = 'Form responses 1';
 
 function getProp_(name) {
   const value = PropertiesService.getScriptProperties().getProperty(name);
@@ -177,11 +177,11 @@ function setupTriggersOpenAI() {
     .onFormSubmit()
     .create();
 
-  ScriptApp.newTrigger('weeklyDigestOpenAI')
-    .timeBased()
-    .onWeekDay(ScriptApp.WeekDay.MONDAY)
-    .atHour(8)
-    .create();
+  // ScriptApp.newTrigger('weeklyDigestOpenAI')
+  //   .timeBased()
+  //   .onWeekDay(ScriptApp.WeekDay.MONDAY)
+  //   .atHour(8)
+  //   .create();
 }
 
 function analyseWithOpenAI(record) {
