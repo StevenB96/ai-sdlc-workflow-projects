@@ -72,51 +72,6 @@ rect rgb(245,245,245)
 end
 ```
 
-## b) Non Technical Projects
-
-```mermaid
-flowchart TD
-
-A[Google Form Submission] --> B[onFormSubmitOpenAI Trigger]
-
-B --> C[processFeedbackRow_]
-
-C --> D[Extract Row Data]
-D --> E[Convert Row to Object]
-
-E --> F[analyseWithOpenAI]
-
-F --> G[Call OpenAI API]
-G --> H[Receive JSON Response]
-
-H --> I[writeAnalysis_]
-I --> J[Write Theme, Sentiment, Urgency, Actions]
-J --> K[Mark Row as PROCESSED]
-
-H --> L{Urgency High or Critical?}
-
-L -- Yes --> M[Send Google Chat Alert]
-L -- Yes --> N[Send Email to Manager]
-L -- No --> O[End Process]
-
-%% Weekly Flow
-P[Weekly Trigger Monday 8am] --> Q[weeklyDigestOpenAI]
-
-Q --> R[buildWeeklyRecords_]
-R --> S[Filter Last 7 Days Data]
-
-S --> T[summariseWithOpenAI]
-T --> U[Call OpenAI for Summary]
-
-U --> V[Generate Weekly Summary]
-
-V --> W[writeWeeklyDoc_]
-W --> X[Create Google Doc]
-
-X --> Y[emailWeeklyDigest_]
-Y --> Z[Send Email with Summary and Doc Link]
-```
-
 ### 2) `technical_claude/`
 
 ```mermaid
@@ -187,6 +142,51 @@ rect rgb(245,245,245)
   AI-->>Engineer: Severity, component, latency, confidence
   Engineer->>Repo: Record results and tuning changes
 end
+```
+
+## b) Non Technical Projects
+
+```mermaid
+flowchart TD
+
+A[Google Form Submission] --> B[onFormSubmitOpenAI Trigger]
+
+B --> C[processFeedbackRow_]
+
+C --> D[Extract Row Data]
+D --> E[Convert Row to Object]
+
+E --> F[analyseWithOpenAI]
+
+F --> G[Call OpenAI API]
+G --> H[Receive JSON Response]
+
+H --> I[writeAnalysis_]
+I --> J[Write Theme, Sentiment, Urgency, Actions]
+J --> K[Mark Row as PROCESSED]
+
+H --> L{Urgency High or Critical?}
+
+L -- Yes --> M[Send Google Chat Alert]
+L -- Yes --> N[Send Email to Manager]
+L -- No --> O[End Process]
+
+%% Weekly Flow
+P[Weekly Trigger Monday 8am] --> Q[weeklyDigestOpenAI]
+
+Q --> R[buildWeeklyRecords_]
+R --> S[Filter Last 7 Days Data]
+
+S --> T[summariseWithOpenAI]
+T --> U[Call OpenAI for Summary]
+
+U --> V[Generate Weekly Summary]
+
+V --> W[writeWeeklyDoc_]
+W --> X[Create Google Doc]
+
+X --> Y[emailWeeklyDigest_]
+Y --> Z[Send Email with Summary and Doc Link]
 ```
 
 ### 3) `non_technical_openai/`
